@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <DBMS text="数据库连接参数"> 
+    <onlineDB1 text="在线数据库" dbms="1" connStr="Server=192.0.0.75;Database=wecare;User id=sa;Password=lcyylcyy;Pooling=true;Max Pool Size=32767;Enlist=true" /> 
+    <onlineDB text="在线数据库" dbms="1" connStr="Server=.;Database=wecare.pis;User id=sa;Password=sql;Pooling=true;Max Pool Size=32767;Enlist=true" /> 
+    <offlineDB text="离线数据库" dbms="1" connStr="Server=192.0.0.75;Database=wecare;User id=sa;Password=lcyylcyy;Pooling=true;Max Pool Size=32767;Enlist=true" />  
+    <interfaceDB text="离线数据库" dbms="1" connStr="Server=192.0.0.75;Database=ehis;User id=sa;Password=lcyylcyy;Pooling=true;Max Pool Size=32767;Enlist=true" /> 
+    <lcDB text="乐从数据库" dbms="3" connStr="Data Source=192.0.0.2;Database=main;Port=5000;UID=sa;PWD=lcyylcyy;Pooling=true;Max Pool Size=32767;Charset=cp936" /> 
+    <lisDB text="LIS数据库" dbms="1" connStr="Server=192.0.0.91;Database=lc_lis_new;User id=sa;Password=lcyylcyy;Pooling=true;Max Pool Size=32767;Enlist=true" /> 
+    <pacsDB text="PACS数据库" dbms="1" connStr="Server=192.0.0.190;Database=annet;User id=annetapp;Password=annetapp;Pooling=true;Max Pool Size=32767;Enlist=true" /> 
+    <othDB text="其他数据库" dbms="2" connStr="Data Source=HIS;User id=his;Password=lcyylcyy;Max Pool Size=512;Enlist=true;" /> 
+  </DBMS> 
+  <IsOutputSql>0</IsOutputSql> 
+</configuration>

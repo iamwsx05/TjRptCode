@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Main>
+    <!--版本号-->
+    <Version text = "版本号" value = "1.1" />
+    <!--更新文件路径-->
+    <FilePath text = "更新文件路径" value = "e:\wecare\updatefiles" />
+    <!--更新文件清单-->
+    <FileList>
+	<File text = "" name = "app.xml" status = "1" />
+	<File text = "" name = "unity.xml" status = "1" />
+	<File text = "" name = "comm.control.dll" status = "1" />
+	<File text = "" name = "comm.entity.dll" status = "1" />
+	<File text = "" name = "comm.itf.dll" status = "1" />
+	<File text = "" name = "comm.utils.dll" status = "1" />
+	<File text = "" name = "console.entity.dll" status = "1" />
+	<File text = "" name = "console.itf.dll" status = "1" />
+	<File text = "" name = "console.ui.dll" status = "1" />
+	<!-- add -->
+	<File text = "" name = "DevExpress.BonusSkins.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.Data.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraEditors.v16.1.dll" status = "1" />
+	<!-- end -->
+	<File text = "" name = "DevExpress.Charts.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.CodeParser.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.DataAccess.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.DataAccess.v16.1.UI.dll" status = "1" />
+	<File text = "" name = "DevExpress.Docs.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.Images.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.Office.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.Pdf.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.Pdf.v16.1.Drawing.dll" status = "1" />
+	<File text = "" name = "DevExpress.PivotGrid.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.Printing.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.RichEdit.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.Sparkline.v16.1.Core.dll" status = "1" />
+	<File text = "" name = "DevExpress.Spreadsheet.v16.1.Core.dll" status = "1" /> 
+	<File text = "" name = "DevExpress.Tutorials.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.Utils.v16.1.UI.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraBars.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraCharts.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraCharts.v16.1.Extensions.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraCharts.v16.1.UI.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraCharts.v16.1.Wizard.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraGrid.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraLayout.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraNavBar.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraPdfViewer.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraPivotGrid.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraPrinting.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraReports.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraReports.v16.1.Extensions.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraRichEdit.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraRichEdit.v16.1.Extensions.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraSpreadsheet.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraTreeList.v16.1.dll" status = "1" />
+	<File text = "" name = "DevExpress.XtraVerticalGrid.v16.1.dll" status = "1" />	  
+	<File text = "" name = "Microsoft.Practices.Unity.Configuration.dll" status = "1" />
+	<File text = "" name = "Microsoft.Practices.Unity.dll" status = "1" />
+	<File text = "" name = "followup.entity.dll" status = "1" />
+	<File text = "" name = "followup.itf.dll" status = "1" />
+	<File text = "" name = "followup.ui.dll" status = "1" />
+	<File text = "" name = "wecare.core.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Charts.Designer.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Dashboard.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Dashboard.v16.1.Web.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Dashboard.v16.1.Win.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Data.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.DataAccess.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.DataAccess.v16.1.UI.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.HtmlPropertyEditor.Win.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.PivotChart.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Reports.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Scheduler.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Scheduler.Web.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Security.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Validation.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Web.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.ExpressApp.Win.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Office.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Pdf.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.PivotGrid.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Printing.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.RichEdit.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Snap.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Snap.v16.1.Extensions.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Snap.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Spreadsheet.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Utils.v16.1.resources.dll" status = "0" />
+	<File text = "" name = "\zh-Hans\DevExpress.Utils.v16.1.UI.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.Xpo.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraBars.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraCharts.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraCharts.v16.1.Wizard.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraEditors.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraGauges.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraGauges.v16.1.Presets.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraGrid.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraLayout.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraNavBar.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraPdfViewer.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraPivotGrid.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraPrinting.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraReports.v16.1.Extensions.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraReports.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraReports.v16.1.Web.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraRichEdit.v16.1.Extensions.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraRichEdit.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraScheduler.v16.1.Core.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraScheduler.v16.1.Extensions.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraScheduler.v16.1.Reporting.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraScheduler.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraSpellChecker.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraSpreadsheet.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraTreeList.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraVerticalGrid.v16.1.resources.dll" status = "1" />
+	<File text = "" name = "\zh-Hans\DevExpress.XtraWizard.v16.1.resources.dll" status = "1" />
+    </FileList>  
+</Main>

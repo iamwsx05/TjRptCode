@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <Client text="本地参数"> 
+    <dbConn>Data Source=.;Initial Catalog=hms;User ID=sa;Password=sql</dbConn>
+  </Client>
+</configuration>
+
+
+
+
+
+
+

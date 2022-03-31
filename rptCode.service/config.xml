@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <Client text="本地参数">
+    <!--工作站ID-->
+    <workstationID>08102</workstationID>
+    <!--科别号-->
+    <kbh>081</kbh>
+    <!--药房窗口序号-->
+    <medwinno>1</medwinno>
+    <!--是否使用代理服务-->
+    <isUseProxy>0</isUseProxy>
+    <!--是否输出XML日志-->
+    <isOutXmlLog>1</isOutXmlLog>
+  </Client>
+</configuration>

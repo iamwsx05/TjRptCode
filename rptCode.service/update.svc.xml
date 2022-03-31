@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Main>
+    <!--版本号-->
+    <Version text = "版本号" value = "1.5" />
+    <!--更新文件路径-->
+    <FilePath text = "更新文件路径" value = "D:\wecare\project\rptCode\rptCode.updateFiles" />
+    <!--更新文件清单-->
+    <FileList>
+	<File text = "" name = "app.xml" status = "0" />
+	<File text = "" name = "unity.xml" status = "0" />
+	<File text = "" name = "comm.control.dll" status = "0" />
+	<File text = "" name = "comm.entity.dll" status = "0" />
+	<File text = "" name = "comm.itf.dll" status = "0" />
+	<File text = "" name = "comm.utils.dll" status = "0" />
+	<File text = "" name = "console.entity.dll" status = "0" />
+	<File text = "" name = "console.itf.dll" status = "0" />
+	<File text = "" name = "console.ui.dll" status = "0" />
+	<File text = "" name = "Microsoft.Practices.Unity.Configuration.dll" status = "0" />
+	<File text = "" name = "Microsoft.Practices.Unity.dll" status = "0" />
+	<File text = "" name = "rptFunc.entity.dll" status = "1" />
+	<File text = "" name = "rptFunc.itf.dll" status = "1" />
+	<File text = "" name = "rptFunc.dll" status = "1" />
+	<File text = "" name = "wecare.core.dll" status = "1" />
+	
+    </FileList>  
+</Main>

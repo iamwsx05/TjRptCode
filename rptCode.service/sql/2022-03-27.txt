@@ -1,0 +1,70 @@
+-->>>>> 2022-03-27 15:52:58:896
+select * from zddw
+
+-->>>>> 2022-03-27 15:53:03:962
+select * from (select b.reg_date,b.lnc_code, b.reg_no, 
+                                     e.comb_code,e.cls_code,
+                                     e.comb_name,
+                                      deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                     d.price1, 
+                                     d.rate,
+                                     d.rb_total
+                                     from ywBrxx a,ywDjxx b,ywTjxmzx d,zdZhxm e        
+                                     where a.pat_code = b.pat_code and             
+                                           a.reg_times = b.reg_times and        
+                                           b.reg_no = d.reg_no and           
+                                           d.comb_code = e.comb_code            
+                                           and  b.active = 'T'
+                                     union all 
+                                     select  b.reg_date, b.lnc_code, b.reg_no, 
+                                     e.comb_code,e.cls_code,
+                                     e.comb_name,
+                                     deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                     d.price1, 
+                                     d.rate,
+                                     d.rb_total     
+                                     from ywBrxx a,ywDjxx b,ywTjxm d,zdZhxm e           
+                                     where a.pat_code = b.pat_code and             
+                                           a.reg_times = b.reg_times and        
+                                           b.reg_no = d.reg_no and           
+                                           d.comb_code = e.comb_code                   
+                                           and  b.active = 'T')  tmp where reg_date between @1 and @2  and lnc_code = '10003 ' order by cls_code;
+
+-->>>>> 2022-03-27 15:53:03:963
+values: 1:= 2022.03.01; 2:= 2022.03.27; 
+
+-->>>>> 2022-03-27 16:09:17:644
+select * from zddw
+
+-->>>>> 2022-03-27 16:10:00:021
+select * from (select b.reg_date,b.lnc_code, b.reg_no, 
+                                     e.comb_code,e.cls_code,
+                                     e.comb_name,
+                                      deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                     d.price1, 
+                                     d.rate,
+                                     d.rb_total
+                                     from ywBrxx a,ywDjxx b,ywTjxmzx d,zdZhxm e        
+                                     where a.pat_code = b.pat_code and             
+                                           a.reg_times = b.reg_times and        
+                                           b.reg_no = d.reg_no and           
+                                           d.comb_code = e.comb_code            
+                                           and  b.active = 'T'
+                                     union all 
+                                     select  b.reg_date, b.lnc_code, b.reg_no, 
+                                     e.comb_code,e.cls_code,
+                                     e.comb_name,
+                                     deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                     d.price1, 
+                                     d.rate,
+                                     d.rb_total     
+                                     from ywBrxx a,ywDjxx b,ywTjxm d,zdZhxm e           
+                                     where a.pat_code = b.pat_code and             
+                                           a.reg_times = b.reg_times and        
+                                           b.reg_no = d.reg_no and           
+                                           d.comb_code = e.comb_code                   
+                                           and  b.active = 'T')  tmp where reg_date between @1 and @2  and lnc_code = '10003 ' order by cls_code;
+
+-->>>>> 2022-03-27 16:10:00:021
+values: 1:= 2022.03.01; 2:= 2022.03.27; 
+

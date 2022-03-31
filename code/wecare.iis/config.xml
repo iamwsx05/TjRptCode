@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <Client text="本地参数">
+    <!--工作站ID-->
+    <workstationID>08102</workstationID>
+    <!--科别号-->
+    <kbh>081</kbh>
+    <!--药房窗口序号-->
+    <medwinno>1</medwinno>
+    <!--是否使用代理服务-->
+    <isUseProxy>0</isUseProxy>
+    <!--是否输出XML日志-->
+    <isOutXmlLog>1</isOutXmlLog>
+    <!--超卓同步排班信息文件-->
+    <gdaBatFile>D:\wecare\XMLUpdate\Today.bat</gdaBatFile>
+    <!--是否启用Oracle发票序号 0 不启用 1 启用-->
+    <isUseOraInvoNo>0</isUseOraInvoNo>
+    <!--挂号诊查费编码-->
+    <zcfYpCode>70000005,70000009,70000010,70000008</zcfYpCode>
+    <!--限时段-->
+    <timeLimit1>23:30-23:59;00:00-00:30</timeLimit1>
+    <!--乐从门诊是否启用佛山社保: 1 启用; 其他非启用-->
+    <lcOpIsUseFssb>1</lcOpIsUseFssb>
+    <!--乐从门诊佛山社保线上登录人ID-->
+    <lcOpFssbLoginId>W1107</lcOpFssbLoginId>
+    <!--乐从门诊佛山社保线上登录人密码-->
+    <lcOpFssbLoginPwd>44061107DNF56Mu</lcOpFssbLoginPwd>
+    <!--门诊科室列表，社保门诊编码-->
+    <depts>
+      <F001>科室1</F001>
+      <F002>科室2</F002>
+    </depts>
+  </Client>
+</configuration>

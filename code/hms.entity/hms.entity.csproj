@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45DA2627-D13F-4005-83BA-738EA3B18F4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hms.Entity</RootNamespace>
+    <AssemblyName>hms.entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="entityadpeitem.cs" />
+    <Compile Include="entitydicqnsummary .cs" />
+    <Compile Include="entitydietdetails.cs" />
+    <Compile Include="entityclienttnbresult.cs" />
+    <Compile Include="entityclientgxyresult.cs" />
+    <Compile Include="entityclientinfo.cs" />
+    <Compile Include="entityclientmodelresult.cs" />
+    <Compile Include="entityclientreport.cs" />
+    <Compile Include="entityctrllocation.cs" />
+    <Compile Include="entitydiccai.cs" />
+    <Compile Include="entitydiccaiconfig.cs" />
+    <Compile Include="entitydiccaiingredient.cs" />
+    <Compile Include="entitydicdientingredient.cs" />
+    <Compile Include="entitydicingredientclassify.cs" />
+    <Compile Include="entitydicingredientconfig.cs" />
+    <Compile Include="entitydicqnctllocation .cs" />
+    <Compile Include="entitydietdetailscai.cs" />
+    <Compile Include="entitydietdetailsingrediet.cs" />
+    <Compile Include="entitydietprinciple.cs" />
+    <Compile Include="entitydietrecord.cs" />
+    <Compile Include="entitydiettemplate.cs" />
+    <Compile Include="entitydiettemplatedetails.cs" />
+    <Compile Include="entitydiettemplatetype.cs" />
+    <Compile Include="entitydiettreatment.cs" />
+    <Compile Include="entitydiplaypeitem.cs" />
+    <Compile Include="entitydisplayclientmodelacess.cs" />
+    <Compile Include="entitydisplayclientrpt.cs" />
+    <Compile Include="entitydisplaydiccairecipe.cs" />
+    <Compile Include="entitydisplaypromotionplan.cs" />
+    <Compile Include="entitydisplayriskresult.cs" />
+    <Compile Include="entityevaluationresult.cs" />
+    <Compile Include="entityhmssf.cs" />
+    <Compile Include="entityevaluateparams.cs" />
+    <Compile Include="entityingredietnutrition.cs" />
+    <Compile Include="entitymedicaladvicecs.cs" />
+    <Compile Include="entitymodelaccess.cs" />
+    <Compile Include="entitymodelaccessrecord .cs" />
+    <Compile Include="entitymodelanalysispoint.cs" />
+    <Compile Include="entitymodelavgrisk.cs" />
+    <Compile Include="entitymodelgroupitem.cs" />
+    <Compile Include="entitymodelparam.cs" />
+    <Compile Include="entitymodelparamcalc .cs" />
+    <Compile Include="entitypromotioncontentconfig.cs" />
+    <Compile Include="entitypromotionplan.cs" />
+    <Compile Include="entitypromotiontemplate.cs" />
+    <Compile Include="entitypromotiontemplateconfig.cs" />
+    <Compile Include="entitypromotionwayconfig.cs" />
+    <Compile Include="entityqndata .cs" />
+    <Compile Include="entityqnfamilydease.cs" />
+    <Compile Include="entityqnrecord.cs" />
+    <Compile Include="entityreportinfo.cs" />
+    <Compile Include="entityreportitem.cs" />
+    <Compile Include="entityreportmainitem.cs" />
+    <Compile Include="entityreportmainitemconfig .cs" />
+    <Compile Include="entityreportrecorde.cs" />
+    <Compile Include="entityreporttemplate.cs" />
+    <Compile Include="entityriskfactor.cs" />
+    <Compile Include="entityriskfactorsresult.cs" />
+    <Compile Include="entityrptmodelacess.cs" />
+    <Compile Include="entityrpttemplateconfig.cs" />
+    <Compile Include="entitysetqncontrol.cs" />
+    <Compile Include="entitysms.cs" />
+    <Compile Include="entitytemplatedetail.cs" />
+    <Compile Include="entitytjdea.cs" />
+    <Compile Include="entitytjjljy.cs" />
+    <Compile Include="entitytjresult.cs" />
+    <Compile Include="entityunnormal.cs" />
+    <Compile Include="entityunnormalcombin.cs" />
+    <Compile Include="entityusergrade.cs" />
+    <Compile Include="enummbgltab.cs" />
+    <Compile Include="enumMeals.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wecare.core\wecare.core.csproj">
+      <Project>{29eb1dd7-a9cd-4549-a6ac-1ae99cae93fc}</Project>
+      <Name>wecare.core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

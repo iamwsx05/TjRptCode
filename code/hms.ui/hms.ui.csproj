@@ -1,0 +1,1575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14A827CF-6E5E-463B-97FB-86E4CB55BA90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hms.Ui</RootNamespace>
+    <AssemblyName>hms.ui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="comm.control, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\comm.control.dll</HintPath>
+    </Reference>
+    <Reference Include="comm.entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\comm.entity.dll</HintPath>
+    </Reference>
+    <Reference Include="comm.itf, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\comm.itf.dll</HintPath>
+    </Reference>
+    <Reference Include="comm.utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\comm.utils.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.Charts.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.Data.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.PivotGrid.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.Printing.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.Sparkline.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.Utils.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraBars.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraCharts.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraEditors.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraGrid.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraLayout.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraNavBar.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraPivotGrid.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraPrinting.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraReports.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.2.Extensions, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\DevExpress.XtraTreeList.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=a20767533a162583, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\iCare2019\Debug\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="wecare.core, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\wecare.core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="viewer\202\frmpopup2020203.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020203.Designer.cs">
+      <DependentUpon>frmpopup2020203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030103.Designer.cs">
+      <DependentUpon>frmpopup2030103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060206.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060206.Designer.cs">
+      <DependentUpon>frmpopup2060206.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060205.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060205.Designer.cs">
+      <DependentUpon>frmpopup2060205.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060204.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060204.Designer.cs">
+      <DependentUpon>frmpopup2060204.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060203.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060203.Designer.cs">
+      <DependentUpon>frmpopup2060203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060201.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060201.Designer.cs">
+      <DependentUpon>frmpopup2060201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030102.Designer.cs">
+      <DependentUpon>frmpopup2030102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\ucReportItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\ucReportItem.Designer.cs">
+      <DependentUpon>ucReportItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020101.Designer.cs">
+      <DependentUpon>frmpopup2020101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020701.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020701.Designer.cs">
+      <DependentUpon>frmpopup2020701.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQn.Designer.cs">
+      <DependentUpon>xrptQn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest01.Designer.cs">
+      <DependentUpon>xrptQuest01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest10.Designer.cs">
+      <DependentUpon>xrptQuest10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest09.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest09.Designer.cs">
+      <DependentUpon>xrptQuest09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest08.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest08.Designer.cs">
+      <DependentUpon>xrptQuest08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest07.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest07.Designer.cs">
+      <DependentUpon>xrptQuest07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest06.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest06.Designer.cs">
+      <DependentUpon>xrptQuest06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest05.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest05.Designer.cs">
+      <DependentUpon>xrptQuest05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest04.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest04.Designer.cs">
+      <DependentUpon>xrptQuest04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest03.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest03.Designer.cs">
+      <DependentUpon>xrptQuest03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest02.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptQuest02.Designer.cs">
+      <DependentUpon>xrptQuest02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020702.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020702.Designer.cs">
+      <DependentUpon>frmpopup2020702.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="proxy\proxyhms.cs" />
+    <Compile Include="uccontrol\customqn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\customqn.Designer.cs">
+      <DependentUpon>customqn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\naviPic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\naviPic.Designer.cs">
+      <DependentUpon>naviPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest01.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest01.Designer.cs">
+      <DependentUpon>quest01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest02.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest02.Designer.cs">
+      <DependentUpon>quest02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest03.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest03.Designer.cs">
+      <DependentUpon>quest03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest04.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest04.Designer.cs">
+      <DependentUpon>quest04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest05.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest05.Designer.cs">
+      <DependentUpon>quest05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest06.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest06.Designer.cs">
+      <DependentUpon>quest06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest07.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest07.Designer.cs">
+      <DependentUpon>quest07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest08.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest08.Designer.cs">
+      <DependentUpon>quest08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest09.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest09.Designer.cs">
+      <DependentUpon>quest09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\quest10.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uccontrol\quest10.Designer.cs">
+      <DependentUpon>quest10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xRptPerson.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xRptPerson.Designer.cs">
+      <DependentUpon>xRptPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frm20101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frm20101.Designer.cs">
+      <DependentUpon>frm20101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frm20102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frm20102.Designer.cs">
+      <DependentUpon>frm20102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frm20103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frm20103.Designer.cs">
+      <DependentUpon>frm20103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frm20104.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frm20104.Designer.cs">
+      <DependentUpon>frm20104.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frm20105.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frm20105.Designer.cs">
+      <DependentUpon>frm20105.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20102.Designer.cs">
+      <DependentUpon>frmpopup20102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20103.Designer.cs">
+      <DependentUpon>frmpopup20103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20104.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20104.Designer.cs">
+      <DependentUpon>frmpopup20104.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20105.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\201\frmpopup20105.Designer.cs">
+      <DependentUpon>frmpopup20105.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20201.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20201.Designer.cs">
+      <DependentUpon>frm20201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20202.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20202.Designer.cs">
+      <DependentUpon>frm20202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20203.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20203.Designer.cs">
+      <DependentUpon>frm20203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20204.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20204.Designer.cs">
+      <DependentUpon>frm20204.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20205.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20205.Designer.cs">
+      <DependentUpon>frm20205.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20206.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20206.Designer.cs">
+      <DependentUpon>frm20206.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frm20207.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frm20207.Designer.cs">
+      <DependentUpon>frm20207.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020201.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020201.Designer.cs">
+      <DependentUpon>frmpopup2020201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020202.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\202\frmpopup2020202.Designer.cs">
+      <DependentUpon>frmpopup2020202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\203\frm20301.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\203\frm20301.Designer.cs">
+      <DependentUpon>frm20301.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\203\frm20302.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\203\frm20302.Designer.cs">
+      <DependentUpon>frm20302.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\203\frmpopup2030101.Designer.cs">
+      <DependentUpon>frmpopup2030101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20401.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20401.Designer.cs">
+      <DependentUpon>frm20401.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20402.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20402.Designer.cs">
+      <DependentUpon>frm20402.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20403.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20403.Designer.cs">
+      <DependentUpon>frm20403.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20404.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20404.Designer.cs">
+      <DependentUpon>frm20404.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20405.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20405.Designer.cs">
+      <DependentUpon>frm20405.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20406.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20406.Designer.cs">
+      <DependentUpon>frm20406.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20407.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20407.Designer.cs">
+      <DependentUpon>frm20407.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20408.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20408.Designer.cs">
+      <DependentUpon>frm20408.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frm20409.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frm20409.Designer.cs">
+      <DependentUpon>frm20409.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040101.Designer.cs">
+      <DependentUpon>frmpopup2040101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040201.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040201.Designer.cs">
+      <DependentUpon>frmpopup2040201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040301.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040301.Designer.cs">
+      <DependentUpon>frmpopup2040301.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040302.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040302.Designer.cs">
+      <DependentUpon>frmpopup2040302.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040801.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040801.Designer.cs">
+      <DependentUpon>frmpopup2040801.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040802.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040802.Designer.cs">
+      <DependentUpon>frmpopup2040802.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040901.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\204\frmpopup2040901.Designer.cs">
+      <DependentUpon>frmpopup2040901.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frm20501.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frm20501.Designer.cs">
+      <DependentUpon>frm20501.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frm20502.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frm20502.Designer.cs">
+      <DependentUpon>frm20502.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050101.Designer.cs">
+      <DependentUpon>frmpopup2050101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050103.Designer.cs">
+      <DependentUpon>frmpopup2050103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050203.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050203.Designer.cs">
+      <DependentUpon>frmpopup2050203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050201.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050201.Designer.cs">
+      <DependentUpon>frmpopup2050201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050202.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050202.Designer.cs">
+      <DependentUpon>frmpopup2050202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20601.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20601.Designer.cs">
+      <DependentUpon>frm20601.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20602.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20602.Designer.cs">
+      <DependentUpon>frm20602.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20603.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20603.Designer.cs">
+      <DependentUpon>frm20603.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20604.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20604.Designer.cs">
+      <DependentUpon>frm20604.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20605.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20605.Designer.cs">
+      <DependentUpon>frm20605.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frm20606.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frm20606.Designer.cs">
+      <DependentUpon>frm20606.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060101.Designer.cs">
+      <DependentUpon>frmpopup2060101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060202.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060202.Designer.cs">
+      <DependentUpon>frmpopup2060202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060301.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060301.Designer.cs">
+      <DependentUpon>frmpopup2060301.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060401.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060401.Designer.cs">
+      <DependentUpon>frmpopup2060401.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup206040101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup206040101.Designer.cs">
+      <DependentUpon>frmpopup206040101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup206040102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup206040102.Designer.cs">
+      <DependentUpon>frmpopup206040102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060501.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\206\frmpopup2060501.Designer.cs">
+      <DependentUpon>frmpopup2060501.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\207\frm20701.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\207\frm20701.Designer.cs">
+      <DependentUpon>frm20701.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\207\frm20702.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\207\frm20702.Designer.cs">
+      <DependentUpon>frm20702.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\207\frm20703.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\207\frm20703.Designer.cs">
+      <DependentUpon>frm20703.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\207\frm20704.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\207\frm20704.Designer.cs">
+      <DependentUpon>frm20704.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20801.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20801.Designer.cs">
+      <DependentUpon>frm20801.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20802.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20802.Designer.cs">
+      <DependentUpon>frm20802.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20803.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20803.Designer.cs">
+      <DependentUpon>frm20803.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20804.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20804.Designer.cs">
+      <DependentUpon>frm20804.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20805.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20805.Designer.cs">
+      <DependentUpon>frm20805.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frm20806.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frm20806.Designer.cs">
+      <DependentUpon>frm20806.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup20801.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup20801.Designer.cs">
+      <DependentUpon>frmpopup20801.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup20802.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup20802.Designer.cs">
+      <DependentUpon>frmpopup20802.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080401.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080401.Designer.cs">
+      <DependentUpon>frmpopup2080401.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080402.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080402.Designer.cs">
+      <DependentUpon>frmpopup2080402.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080403.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080403.Designer.cs">
+      <DependentUpon>frmpopup2080403.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup208040301.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup208040301.Designer.cs">
+      <DependentUpon>frmpopup208040301.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080404.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080404.Designer.cs">
+      <DependentUpon>frmpopup2080404.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080501.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080501.Designer.cs">
+      <DependentUpon>frmpopup2080501.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080601.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\208\frmpopup2080601.Designer.cs">
+      <DependentUpon>frmpopup2080601.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frm20901.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frm20901.Designer.cs">
+      <DependentUpon>frm20901.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frm20902.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frm20902.Designer.cs">
+      <DependentUpon>frm20902.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frm20903.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frm20903.Designer.cs">
+      <DependentUpon>frm20903.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090101.Designer.cs">
+      <DependentUpon>frmpopup2090101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090102.Designer.cs">
+      <DependentUpon>frmpopup2090102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup2090103.Designer.cs">
+      <DependentUpon>frmpopup2090103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup20902.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup20902.Designer.cs">
+      <DependentUpon>frmpopup20902.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup20903.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\209\frmpopup20903.Designer.cs">
+      <DependentUpon>frmpopup20903.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21001.Designer.cs">
+      <DependentUpon>frm21001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21002.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21002.Designer.cs">
+      <DependentUpon>frm21002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21003.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21003.Designer.cs">
+      <DependentUpon>frm21003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21004.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21004.Designer.cs">
+      <DependentUpon>frm21004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21005.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21005.Designer.cs">
+      <DependentUpon>frm21005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frm21006.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frm21006.Designer.cs">
+      <DependentUpon>frm21006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21001.Designer.cs">
+      <DependentUpon>frmpopup21001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21002.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21002.Designer.cs">
+      <DependentUpon>frmpopup21002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21003.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21003.Designer.cs">
+      <DependentUpon>frmpopup21003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21004.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup21004.Designer.cs">
+      <DependentUpon>frmpopup21004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100501.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100501.Designer.cs">
+      <DependentUpon>frmpopup2100501.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100502.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100502.Designer.cs">
+      <DependentUpon>frmpopup2100502.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100503.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100503.Designer.cs">
+      <DependentUpon>frmpopup2100503.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100504.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100504.Designer.cs">
+      <DependentUpon>frmpopup2100504.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100601.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100601.Designer.cs">
+      <DependentUpon>frmpopup2100601.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100602.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100602.Designer.cs">
+      <DependentUpon>frmpopup2100602.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100603.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\210\frmpopup2100603.Designer.cs">
+      <DependentUpon>frmpopup2100603.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\211\frm21101.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\211\frm21101.Designer.cs">
+      <DependentUpon>frm21101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\211\frm21102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\211\frm21102.Designer.cs">
+      <DependentUpon>frm21102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\211\frm21103.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\211\frm21103.Designer.cs">
+      <DependentUpon>frm21103.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\211\frm21104.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\211\frm21104.Designer.cs">
+      <DependentUpon>frm21104.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\frmaccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\frmaccess.Designer.cs">
+      <DependentUpon>frmaccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050102.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewer\205\frmpopup2050102.Designer.cs">
+      <DependentUpon>frmpopup2050102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uccontrol\xrptCustomQn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uccontrol\xrptCustomQn.Designer.cs">
+      <DependentUpon>xrptCustomQn.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="viewer\202\frmpopup2020203.resx">
+      <DependentUpon>frmpopup2020203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\203\frmpopup2030103.resx">
+      <DependentUpon>frmpopup2030103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060206.resx">
+      <DependentUpon>frmpopup2060206.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060205.resx">
+      <DependentUpon>frmpopup2060205.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060204.resx">
+      <DependentUpon>frmpopup2060204.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060201.resx">
+      <DependentUpon>frmpopup2060201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\ucReportItem.resx">
+      <DependentUpon>ucReportItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frmpopup2020101.resx">
+      <DependentUpon>frmpopup2020101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frmpopup2020701.resx">
+      <DependentUpon>frmpopup2020701.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQn.resx">
+      <DependentUpon>xrptQn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest01.resx">
+      <DependentUpon>xrptQuest01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest10.resx">
+      <DependentUpon>xrptQuest10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest09.resx">
+      <DependentUpon>xrptQuest09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest08.resx">
+      <DependentUpon>xrptQuest08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest07.resx">
+      <DependentUpon>xrptQuest07.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest06.resx">
+      <DependentUpon>xrptQuest06.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest05.resx">
+      <DependentUpon>xrptQuest05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest04.resx">
+      <DependentUpon>xrptQuest04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest03.resx">
+      <DependentUpon>xrptQuest03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptQuest02.resx">
+      <DependentUpon>xrptQuest02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frmpopup2020702.resx">
+      <DependentUpon>frmpopup2020702.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\customqn.resx">
+      <DependentUpon>customqn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\naviPic.resx">
+      <DependentUpon>naviPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest01.resx">
+      <DependentUpon>quest01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest02.resx">
+      <DependentUpon>quest02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest03.resx">
+      <DependentUpon>quest03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest04.resx">
+      <DependentUpon>quest04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest05.resx">
+      <DependentUpon>quest05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest06.resx">
+      <DependentUpon>quest06.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest07.resx">
+      <DependentUpon>quest07.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest08.resx">
+      <DependentUpon>quest08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest09.resx">
+      <DependentUpon>quest09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\quest10.resx">
+      <DependentUpon>quest10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xRptPerson.resx">
+      <DependentUpon>xRptPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frm20101.resx">
+      <DependentUpon>frm20101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frm20102.resx">
+      <DependentUpon>frm20102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frm20103.resx">
+      <DependentUpon>frm20103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frm20104.resx">
+      <DependentUpon>frm20104.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frm20105.resx">
+      <DependentUpon>frm20105.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frmpopup20102.resx">
+      <DependentUpon>frmpopup20102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frmpopup20103.resx">
+      <DependentUpon>frmpopup20103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frmpopup20104.resx">
+      <DependentUpon>frmpopup20104.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\201\frmpopup20105.resx">
+      <DependentUpon>frmpopup20105.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20201.resx">
+      <DependentUpon>frm20201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20202.resx">
+      <DependentUpon>frm20202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20203.resx">
+      <DependentUpon>frm20203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20204.resx">
+      <DependentUpon>frm20204.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20205.resx">
+      <DependentUpon>frm20205.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20206.resx">
+      <DependentUpon>frm20206.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frm20207.resx">
+      <DependentUpon>frm20207.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frmpopup2020201.resx">
+      <DependentUpon>frmpopup2020201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\202\frmpopup2020202.resx">
+      <DependentUpon>frmpopup2020202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\203\frm20301.resx">
+      <DependentUpon>frm20301.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\203\frm20302.resx">
+      <DependentUpon>frm20302.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\203\frmpopup2030101.resx">
+      <DependentUpon>frmpopup2030101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\203\frmpopup2030102.resx">
+      <DependentUpon>frmpopup2030102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20401.resx">
+      <DependentUpon>frm20401.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20402.resx">
+      <DependentUpon>frm20402.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20403.resx">
+      <DependentUpon>frm20403.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20404.resx">
+      <DependentUpon>frm20404.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20405.resx">
+      <DependentUpon>frm20405.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20406.resx">
+      <DependentUpon>frm20406.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20407.resx">
+      <DependentUpon>frm20407.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20408.resx">
+      <DependentUpon>frm20408.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frm20409.resx">
+      <DependentUpon>frm20409.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040101.resx">
+      <DependentUpon>frmpopup2040101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040201.resx">
+      <DependentUpon>frmpopup2040201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040301.resx">
+      <DependentUpon>frmpopup2040301.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040302.resx">
+      <DependentUpon>frmpopup2040302.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040801.resx">
+      <DependentUpon>frmpopup2040801.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040802.resx">
+      <DependentUpon>frmpopup2040802.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\204\frmpopup2040901.resx">
+      <DependentUpon>frmpopup2040901.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frm20501.resx">
+      <DependentUpon>frm20501.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frm20502.resx">
+      <DependentUpon>frm20502.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050101.resx">
+      <DependentUpon>frmpopup2050101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050103.resx">
+      <DependentUpon>frmpopup2050103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050203.resx">
+      <DependentUpon>frmpopup2050203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050201.resx">
+      <DependentUpon>frmpopup2050201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050202.resx">
+      <DependentUpon>frmpopup2050202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20601.resx">
+      <DependentUpon>frm20601.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20602.resx">
+      <DependentUpon>frm20602.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20603.resx">
+      <DependentUpon>frm20603.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20604.resx">
+      <DependentUpon>frm20604.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20605.resx">
+      <DependentUpon>frm20605.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frm20606.resx">
+      <DependentUpon>frm20606.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060101.resx">
+      <DependentUpon>frmpopup2060101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060202.resx">
+      <DependentUpon>frmpopup2060202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060203.resx">
+      <DependentUpon>frmpopup2060203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060301.resx">
+      <DependentUpon>frmpopup2060301.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060401.resx">
+      <DependentUpon>frmpopup2060401.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup206040101.resx">
+      <DependentUpon>frmpopup206040101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup206040102.resx">
+      <DependentUpon>frmpopup206040102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\206\frmpopup2060501.resx">
+      <DependentUpon>frmpopup2060501.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\207\frm20701.resx">
+      <DependentUpon>frm20701.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\207\frm20702.resx">
+      <DependentUpon>frm20702.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\207\frm20703.resx">
+      <DependentUpon>frm20703.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\207\frm20704.resx">
+      <DependentUpon>frm20704.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20801.resx">
+      <DependentUpon>frm20801.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20802.resx">
+      <DependentUpon>frm20802.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20803.resx">
+      <DependentUpon>frm20803.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20804.resx">
+      <DependentUpon>frm20804.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20805.resx">
+      <DependentUpon>frm20805.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frm20806.resx">
+      <DependentUpon>frm20806.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup20801.resx">
+      <DependentUpon>frmpopup20801.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup20802.resx">
+      <DependentUpon>frmpopup20802.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080401.resx">
+      <DependentUpon>frmpopup2080401.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080402.resx">
+      <DependentUpon>frmpopup2080402.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080403.resx">
+      <DependentUpon>frmpopup2080403.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup208040301.resx">
+      <DependentUpon>frmpopup208040301.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080404.resx">
+      <DependentUpon>frmpopup2080404.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080501.resx">
+      <DependentUpon>frmpopup2080501.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\208\frmpopup2080601.resx">
+      <DependentUpon>frmpopup2080601.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frm20901.resx">
+      <DependentUpon>frm20901.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frm20902.resx">
+      <DependentUpon>frm20902.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frm20903.resx">
+      <DependentUpon>frm20903.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frmpopup2090101.resx">
+      <DependentUpon>frmpopup2090101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frmpopup2090102.resx">
+      <DependentUpon>frmpopup2090102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frmpopup2090103.resx">
+      <DependentUpon>frmpopup2090103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frmpopup20902.resx">
+      <DependentUpon>frmpopup20902.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\209\frmpopup20903.resx">
+      <DependentUpon>frmpopup20903.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21001.resx">
+      <DependentUpon>frm21001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21002.resx">
+      <DependentUpon>frm21002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21003.resx">
+      <DependentUpon>frm21003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21004.resx">
+      <DependentUpon>frm21004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21005.resx">
+      <DependentUpon>frm21005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frm21006.resx">
+      <DependentUpon>frm21006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup21001.resx">
+      <DependentUpon>frmpopup21001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup21002.resx">
+      <DependentUpon>frmpopup21002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup21003.resx">
+      <DependentUpon>frmpopup21003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup21004.resx">
+      <DependentUpon>frmpopup21004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100501.resx">
+      <DependentUpon>frmpopup2100501.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100502.resx">
+      <DependentUpon>frmpopup2100502.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100503.resx">
+      <DependentUpon>frmpopup2100503.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100504.resx">
+      <DependentUpon>frmpopup2100504.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100601.resx">
+      <DependentUpon>frmpopup2100601.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100602.resx">
+      <DependentUpon>frmpopup2100602.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\210\frmpopup2100603.resx">
+      <DependentUpon>frmpopup2100603.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\211\frm21101.resx">
+      <DependentUpon>frm21101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\211\frm21102.resx">
+      <DependentUpon>frm21102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\211\frm21103.resx">
+      <DependentUpon>frm21103.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\211\frm21104.resx">
+      <DependentUpon>frm21104.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\frmaccess.resx">
+      <DependentUpon>frmaccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewer\205\frmpopup2050102.resx">
+      <DependentUpon>frmpopup2050102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uccontrol\xrptCustomQn.resx">
+      <DependentUpon>xrptCustomQn.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\hms.entity\hms.entity.csproj">
+      <Project>{45da2627-d13f-4005-83ba-738ea3b18f4f}</Project>
+      <Name>hms.entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hms.itf\hms.itf.csproj">
+      <Project>{9362161b-e77f-4483-99f0-9f87a1334e59}</Project>
+      <Name>hms.itf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controller\" />
+    <Folder Include="custom\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\统计分析.png" />
+    <None Include="Resources\知识库.png" />
+    <None Include="Resources\问卷维护.png" />
+    <None Include="Resources\体检维护.png" />
+    <None Include="Resources\服务预约.png" />
+    <None Include="Resources\膳食管理.png" />
+    <None Include="Resources\慢病管理.png" />
+    <None Include="Resources\健康干预.png" />
+    <None Include="Resources\健康报告.png" />
+    <None Include="Resources\健康档案.png" />
+    <None Include="Resources\客户管理.png" />
+    <None Include="Resources\评估模型设置.png" />
+    <None Include="Resources\短信库.png" />
+    <None Include="Resources\干预方案模板.png" />
+    <None Include="Resources\干预模板.png" />
+    <None Include="Resources\宣教文章库.png" />
+    <None Include="Resources\运动库.png" />
+    <None Include="Resources\自定义量表设置.png" />
+    <None Include="Resources\危险因素库.png" />
+    <None Include="Resources\问卷题库.png" />
+    <None Include="Resources\高血压管理.png" />
+    <None Include="Resources\糖尿病管理.png" />
+    <None Include="Resources\体检项目库.png" />
+    <None Include="Resources\体检项目匹配.png" />
+    <None Include="Resources\异常库.png" />
+    <None Include="Resources\组合异常.png" />
+    <None Include="Resources\体检报告模板.png" />
+    <None Include="Resources\异常名称匹配.png" />
+    <None Include="Resources\短信平台.png" />
+    <None Include="Resources\在线交流.png" />
+    <None Include="Resources\网络电话.png" />
+    <None Include="Resources\干预记录.png" />
+    <None Include="Resources\待执行计划.png" />
+    <None Include="Resources\创建计划.png" />
+    <None Include="Resources\短信记录.png" />
+    <None Include="Resources\审核任务.png" />
+    <None Include="Resources\视频语音.png" />
+    <None Include="Resources\膳食方案.png" />
+    <None Include="Resources\成品菜.png" />
+    <None Include="Resources\中医食疗.png" />
+    <None Include="Resources\原料库.png" />
+    <None Include="Resources\饮食菜谱模板.png" />
+    <None Include="Resources\膳食原则.png" />
+    <None Include="Resources\预约管理.png" />
+    <None Include="Resources\服务套餐.png" />
+    <None Include="Resources\服务维护.png" />
+    <None Include="Resources\服务详情.png" />
+    <None Include="Resources\个人报告.png" />
+    <None Include="Resources\团体报告.png" />
+    <None Include="Resources\体检报告.png" />
+    <None Include="Resources\其他问卷.png" />
+    <None Include="Resources\健康检测.png" />
+    <None Include="Resources\用药记录.png" />
+    <None Include="Resources\就医记录.png" />
+    <None Include="Resources\单项检查.png" />
+    <None Include="Resources\常规问卷.png" />
+    <None Include="Resources\单位管理.png" />
+    <None Include="Resources\家庭管理.png" />
+    <None Include="Resources\类别管理.png" />
+    <None Include="Resources\我的客户.png" />
+    <None Include="Resources\工作量统计.png" />
+    <None Include="Resources\问卷统计.png" />
+    <None Include="Resources\体检统计.png" />
+    <None Include="Resources\精确查询.png" />
+    <None Include="Resources\人员管理.png" />
+    <Content Include="窗体编号命名.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

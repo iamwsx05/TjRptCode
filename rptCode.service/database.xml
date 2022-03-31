@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <DBMS text="数据库连接参数">  
+    <onlineDB text="在线数据库" dbms="1" connStr="Server=.;Database=tjgl_xtyy;User id=sa;Password=sql;Max Pool Size=32767;Enlist=true" />   
+    <offlineDB text="离线数据库" dbms="1" connStr="Server=192.168.10.39\tj;Database=hms;User id=sa;Password=29281234;Max Pool Size=32767;Enlist=true" /> 
+	<peDB text="体检数据库" dbms="1" connStr="Server=192.168.10.39\tj;Database=tjgl;User id=sa;Password=29281234;Max Pool Size=32767;Enlist=true" /> 
+    <interfaceDB text="接口数据库" dbms="2" connStr="Data Source=TJGL;User id=TJGL;Password=tjgl;Max Pool Size=512;Enlist=true" />  
+  </DBMS> 
+  <IsOutputSql>1</IsOutputSql> 
+</configuration>

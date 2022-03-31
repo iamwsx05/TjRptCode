@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29EB1DD7-A9CD-4549-A6AC-1AE99CAE93FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>weCare.Core</RootNamespace>
+    <AssemblyName>wecare.core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=a20767533a162583, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=a20767533a162583, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\debug\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dac\ase.cs" />
+    <Compile Include="dac\license.cs" />
+    <Compile Include="dac\oracle.cs" />
+    <Compile Include="dac\sqlhelper.cs" />
+    <Compile Include="dac\sqllog.cs" />
+    <Compile Include="dac\sqlserver.cs" />
+    <Compile Include="dac\sybase.cs" />
+    <Compile Include="entity\base\basedatacontract.cs" />
+    <Compile Include="entity\base\bindinglistview.cs" />
+    <Compile Include="entity\biz\entityaccount.cs" />
+    <Compile Include="entity\biz\entityappconfig.cs" />
+    <Compile Include="entity\base\entityattribute.cs" />
+    <Compile Include="entity\base\entitydml.cs" />
+    <Compile Include="entity\biz\entityformctrl.cs" />
+    <Compile Include="entity\biz\entityparm.cs" />
+    <Compile Include="entity\biz\entityrichtext.cs" />
+    <Compile Include="entity\table\entitydw.cs" />
+    <Compile Include="entity\table\cp\entitycp.cs" />
+    <Compile Include="entity\table\emr\entitydiceventtype.cs" />
+    <Compile Include="entity\table\emr\entityemracceptancecheck.cs" />
+    <Compile Include="entity\table\emr\entityemrdatatable.cs" />
+    <Compile Include="entity\table\emr\entityemrtemperaturechartevent.cs" />
+    <Compile Include="entity\table\emr\entityemrtemperaturechartmain.cs" />
+    <Compile Include="entity\table\emr\entityemrtemperaturemonitordata.cs" />
+    <Compile Include="entity\table\emr\entityiparea.cs" />
+    <Compile Include="entity\table\emr\entityipbeds.cs" />
+    <Compile Include="entity\table\emr\entityipmominfantrelation.cs" />
+    <Compile Include="entity\table\emr\entityipregister.cs" />
+    <Compile Include="entity\table\emr\entityiptransfer.cs" />
+    <Compile Include="entity\table\emr\eumnthreeitemstimeperiod.cs" />
+    <Compile Include="entity\table\entityaliasdiagnose.cs" />
+    <Compile Include="entity\table\entityaliasitem.cs" />
+    <Compile Include="entity\table\entityarea.cs" />
+    <Compile Include="entity\table\entityascodeaim.cs" />
+    <Compile Include="entity\table\entityascoderoom.cs" />
+    <Compile Include="entity\table\entityascodesample.cs" />
+    <Compile Include="entity\table\entityasdefreqitem.cs" />
+    <Compile Include="entity\table\entityasipreqentry.cs" />
+    <Compile Include="entity\table\entityasreqentry.cs" />
+    <Compile Include="entity\table\entityasrequest.cs" />
+    <Compile Include="entity\table\entitybccodeclass.cs" />
+    <Compile Include="entity\table\entitybcdefreqitem.cs" />
+    <Compile Include="entity\table\entitybcreqentry.cs" />
+    <Compile Include="entity\table\entitybcreqentrypacs.cs" />
+    <Compile Include="entity\table\entitybcrequest.cs" />
+    <Compile Include="entity\table\entitycisinfectiouscard.cs" />
+    <Compile Include="entity\table\entitycisordergroupitem.cs" />
+    <Compile Include="entity\table\entitycodeacctcorp.cs" />
+    <Compile Include="entity\table\entitycodeacctperson.cs" />
+    <Compile Include="entity\table\entitycodeaddr.cs" />
+    <Compile Include="entity\table\entitycodearea.cs" />
+    <Compile Include="entity\table\entitycodebasicclass.cs" />
+    <Compile Include="entity\table\entitycodebloodtype.cs" />
+    <Compile Include="entity\table\entitycodechrgcls.cs" />
+    <Compile Include="entity\table\entitycodecity.cs" />
+    <Compile Include="entity\table\entitycodeconfiguration.cs" />
+    <Compile Include="entity\table\entitycodecountry.cs" />
+    <Compile Include="entity\table\entitycodecut.cs" />
+    <Compile Include="entity\table\entitycodedeptswitch.cs" />
+    <Compile Include="entity\table\entitycodedireclass.cs" />
+    <Compile Include="entity\table\entitycodedirection.cs" />
+    <Compile Include="entity\table\entitycodedoctorswitch.cs" />
+    <Compile Include="entity\table\entitycodedrugclass.cs" />
+    <Compile Include="entity\table\entitycodedrugpack.cs" />
+    <Compile Include="entity\table\entitycodeduty.cs" />
+    <Compile Include="entity\table\entitycodefee.cs" />
+    <Compile Include="entity\table\entitycodefrequency.cs" />
+    <Compile Include="entity\table\entitycodefrying.cs" />
+    <Compile Include="entity\table\entitycodehea.cs" />
+    <Compile Include="entity\table\entitycodeinfect.cs" />
+    <Compile Include="entity\table\entitycodeitem.cs" />
+    <Compile Include="entity\table\entitycodeitembb.cs" />
+    <Compile Include="entity\table\entitycodeitemcls.cs" />
+    <Compile Include="entity\table\entitycodejob.cs" />
+    <Compile Include="entity\table\entitycodejobswitch.cs" />
+    <Compile Include="entity\table\entitycodemarry.cs" />
+    <Compile Include="entity\table\entitycodenation.cs" />
+    <Compile Include="entity\table\entitycodeoral.cs" />
+    <Compile Include="entity\table\entitycodepayment.cs" />
+    <Compile Include="entity\table\entitycodepharmic.cs" />
+    <Compile Include="entity\table\entitycodeprint.cs" />
+    <Compile Include="entity\table\entitycodeprovince.cs" />
+    <Compile Include="entity\table\entitycoderank.cs" />
+    <Compile Include="entity\table\entitycodereg.cs" />
+    <Compile Include="entity\table\entitycoderegion.cs" />
+    <Compile Include="entity\table\entitycoderelation.cs" />
+    <Compile Include="entity\table\entitycoderelationswitch.cs" />
+    <Compile Include="entity\table\entitycoderule.cs" />
+    <Compile Include="entity\table\entitycodeunit.cs" />
+    <Compile Include="entity\table\entitycommondic.cs" />
+    <Compile Include="entity\table\entitycontagion.cs" />
+    <Compile Include="entity\table\entitydefconfiguration.cs" />
+    <Compile Include="entity\table\entitydefdirectionitem.cs" />
+    <Compile Include="entity\table\entitydepartment.cs" />
+    <Compile Include="entity\table\entitydicdecoction.cs" />
+    <Compile Include="entity\table\entitydicdeptreg.cs" />
+    <Compile Include="entity\table\entitydicdeptroom.cs" />
+    <Compile Include="entity\table\entitydicfrequency.cs" />
+    <Compile Include="entity\table\entitydicherbalrecipetype.cs" />
+    <Compile Include="entity\table\entitydicitem.cs" />
+    <Compile Include="entity\table\entitydicshift.cs" />
+    <Compile Include="entity\table\entitydicusage.cs" />
+    <Compile Include="entity\table\entityeform.cs" />
+    <Compile Include="entity\table\entityelementtemplate.cs" />
+    <Compile Include="entity\table\entityemployee.cs" />
+    <Compile Include="entity\table\entityemrbasicinfo.cs" />
+    <Compile Include="entity\table\entityemrcasecatalog.cs" />
+    <Compile Include="entity\table\entityemrconfinecolumn.cs" />
+    <Compile Include="entity\table\entityemrdept.cs" />
+    <Compile Include="entity\table\entityemrfieldinfo.cs" />
+    <Compile Include="entity\table\entityemrformula.cs" />
+    <Compile Include="entity\table\entityemrillustration.cs" />
+    <Compile Include="entity\table\entityemrpartogramdata.cs" />
+    <Compile Include="entity\table\entityemrpartogrammain.cs" />
+    <Compile Include="entity\table\entityemrpatientrecord.cs" />
+    <Compile Include="entity\table\entityemrprogressnotetype.cs" />
+    <Compile Include="entity\table\entityemrtablebasicInfo.cs" />
+    <Compile Include="entity\table\entityemrtablefieldinfo.cs" />
+    <Compile Include="entity\table\entityfunction.cs" />
+    <Compile Include="entity\table\entityherbalrecipe.cs" />
+    <Compile Include="entity\table\entityherbalrecipedetail.cs" />
+    <Compile Include="entity\table\entityhospital.cs" />
+    <Compile Include="entity\table\entityicd.cs" />
+    <Compile Include="entity\table\entitymddefdrugstore.cs" />
+    <Compile Include="entity\table\entityopquerylock.cs" />
+    <Compile Include="entity\table\entityopreclock.cs" />
+    <Compile Include="entity\table\entityoprecwechatpay.cs" />
+    <Compile Include="entity\table\entityopregaccount.cs" />
+    <Compile Include="entity\table\entityopregblacklist.cs" />
+    <Compile Include="entity\table\entityopregbooking.cs" />
+    <Compile Include="entity\table\entityopregplatformlog.cs" />
+    <Compile Include="entity\table\entityopregqueue.cs" />
+    <Compile Include="entity\table\entityopregscheduling.cs" />
+    <Compile Include="entity\table\entityopregschedulingday.cs" />
+    <Compile Include="entity\table\entityopregunionpay.cs" />
+    <Compile Include="entity\table\entityopregwechatbinding.cs" />
+    <Compile Include="entity\table\entityopregwechatpay.cs" />
+    <Compile Include="entity\table\entityopwechataccount.cs" />
+    <Compile Include="entity\table\entitypatientinfo.cs" />
+    <Compile Include="entity\table\entityprinttemplate.cs" />
+    <Compile Include="entity\table\entityrole.cs" />
+    <Compile Include="entity\table\entityrptadverseevent.cs" />
+    <Compile Include="entity\table\entitysequenceid.cs" />
+    <Compile Include="entity\table\entitysyslocalsetting.cs" />
+    <Compile Include="entity\table\entitysysmodule.cs" />
+    <Compile Include="entity\base\entitytools.cs" />
+    <Compile Include="entity\base\enumexectype.cs" />
+    <Compile Include="entity\biz\globalappconfig.cs" />
+    <Compile Include="entity\table\entitysysparameter.cs" />
+    <Compile Include="entity\table\entitysysreport.cs" />
+    <Compile Include="entity\table\entitywechatdailyreport.cs" />
+    <Compile Include="entity\table\gh\entityclcharge.cs" />
+    <Compile Include="entity\table\gh\entityclchargeinvoice.cs" />
+    <Compile Include="entity\table\gh\entityclchargerecipe.cs" />
+    <Compile Include="entity\table\gh\entityclchrgentry.cs" />
+    <Compile Include="entity\table\gh\entitycldiagqueue.cs" />
+    <Compile Include="entity\table\gh\entityclduty.cs" />
+    <Compile Include="entity\table\gh\entityclinvoentry.cs" />
+    <Compile Include="entity\table\gh\entityclinvoice.cs" />
+    <Compile Include="entity\table\gh\entityclpayment.cs" />
+    <Compile Include="entity\table\gh\entityclrefundment.cs" />
+    <Compile Include="entity\table\gh\entityclregbill.cs" />
+    <Compile Include="entity\table\gh\entityclregister.cs" />
+    <Compile Include="entity\table\gh\entityclregmodify.cs" />
+    <Compile Include="entity\table\hms\entitydichazards.cs" />
+    <Compile Include="entity\table\hms\entitydicmessagecontent.cs" />
+    <Compile Include="entity\table\hms\entitydicmessagetype.cs" />
+    <Compile Include="entity\table\hms\entitydicpedepartment.cs" />
+    <Compile Include="entity\table\hms\entitydicpeitem.cs" />
+    <Compile Include="entity\table\hms\entitydicqndetail.cs" />
+    <Compile Include="entity\table\hms\entitydicqnmain.cs" />
+    <Compile Include="entity\table\hms\entitydicqnsetting.cs" />
+    <Compile Include="entity\table\hms\entitydicsportitem.cs" />
+    <Compile Include="entity\table\hms\entitygxypg.cs" />
+    <Compile Include="entity\table\hms\entitygxypgdata.cs" />
+    <Compile Include="entity\table\hms\entitygxyrecord.cs" />
+    <Compile Include="entity\table\hms\entitygxysf.cs" />
+    <Compile Include="entity\table\hms\entitygxysfdata.cs" />
+    <Compile Include="entity\table\hms\entityhmspatient.cs" />
+    <Compile Include="entity\table\hms\entityperegister.cs" />
+    <Compile Include="entity\table\hms\entitytnbpg.cs" />
+    <Compile Include="entity\table\hms\entitytnbpgdata.cs" />
+    <Compile Include="entity\table\hms\entitytnbrecord.cs" />
+    <Compile Include="entity\table\hms\entitytnbsf.cs" />
+    <Compile Include="entity\table\hms\entitytnbsfdata.cs" />
+    <Compile Include="entity\table\pis\entitydiccriticalvalue.cs" />
+    <Compile Include="entity\table\pis\entitydicpisitem.cs" />
+    <Compile Include="entity\table\pis\entitydicpisItemqc.cs" />
+    <Compile Include="entity\table\pis\entitydicsampledesc.cs" />
+    <Compile Include="entity\table\pis\entitydicsamplepart.cs" />
+    <Compile Include="entity\table\pis\entitypisclass.cs" />
+    <Compile Include="entity\table\pis\entitypisimage.cs" />
+    <Compile Include="entity\table\pis\entitypisrecord.cs" />
+    <Compile Include="entity\table\pis\entitypisregister.cs" />
+    <Compile Include="entity\table\pis\entitypisteamrole.cs" />
+    <Compile Include="entity\table\pis\entitypistemplate.cs" />
+    <Compile Include="entity\table\sb\entityreportsb.cs" />
+    <Compile Include="entity\table\ws\entitywsaccount.cs" />
+    <Compile Include="itf\idac.cs" />
+    <Compile Include="itf\iemr.cs" />
+    <Compile Include="itf\ilistsort.cs" />
+    <Compile Include="itf\iwcf.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\barcode128.cs" />
+    <Compile Include="utils\calcage.cs" />
+    <Compile Include="utils\emrtools.cs" />
+    <Compile Include="utils\escryptography.cs" />
+    <Compile Include="utils\exceptionlog.cs" />
+    <Compile Include="utils\ftp.cs" />
+    <Compile Include="utils\function.cs" />
+    <Compile Include="utils\richtexttools.cs" />
+    <Compile Include="utils\rsa\BigInteger.cs" />
+    <Compile Include="utils\rsa\RSAHelper.cs" />
+    <Compile Include="utils\spellcodehelper.cs" />
+    <Compile Include="utils\symmetricalgorithm.cs" />
+    <Compile Include="utils\wcfendpoint.cs" />
+    <Compile Include="utils\webservicehelper.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
