@@ -37,12 +37,23 @@ namespace RtpFunc.Itf
         List<EntityTjjdb> GetTjjdb(List<EntityParm> parms);
 
         /// <summary>
+        /// 异常报表
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        [OperationContract(Name = "GetYcjgRpt")]
+        List<EntityYcjgRpt> GetYcjgRpt(List<EntityParm> parms);
+
+        /// <summary>
         /// GetTjSfJkmx
         /// </summary>
         /// <param name="parms"></param>
         /// <returns></returns>
         [OperationContract(Name = "GetTjSfJkmx")]
         List<EntityTjSfJkmx> GetTjSfJkmx(List<EntityParm> parms);
+
+        [OperationContract(Name = "GetZybRegRpt")]
+        List<EntityZybRegRpt> GetZybRegRpt(List<EntityParm> parms);
 
         /// <summary>
         /// 本地参数配置
@@ -55,6 +66,13 @@ namespace RtpFunc.Itf
         //单位
         [OperationContract(Name = "GetZdDw")]
         List<EntityDw> GetZdDw();
+
+        /// <summary>
+        /// 项目分类
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract(Name = "GetZdXmfl")]
+        List<EntityXmfl> GetZdXmfl();
 
         [OperationContract(Name = "GetYwdjxx")]
         EntityYwDjxx GetYwdjxx(string regNo);

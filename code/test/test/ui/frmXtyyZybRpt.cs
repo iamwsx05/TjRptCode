@@ -21,9 +21,9 @@ using weCare.Core.Utils;
 
 namespace RptFunc
 {
-    public partial class frmXtyyRpt : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmXtyyZybRpt : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmXtyyRpt()
+        public frmXtyyZybRpt()
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful");
@@ -108,8 +108,6 @@ namespace RptFunc
                 String filename = f.SafeFileName;//新建文本文档.txt
                 filePath = filepath;
             }
-
-            //lblFile.Text = filePath;
         }
 
         private void iState_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -133,7 +131,6 @@ namespace RptFunc
         {
             if (tabPane1.SelectedPageIndex == 0)
             {
-                //uiHelper.ExportToXls(this.gvTJxm);
             }
             else if (tabPane1.SelectedPageIndex == 1)
             {
@@ -188,130 +185,11 @@ namespace RptFunc
 
         #endregion
 
-        #region 项目报表
-        internal void QueryItemRpt()
-        {
-            List<EntityItemRpt> data = new List<EntityItemRpt>();
-
-            string lncCode = string.Empty;
-            string lncName = this.lueDw.Text;
-            if (!string.IsNullOrEmpty(lncName))
-            {
-                EntityDw dw = lstDw.Find(r=>r.lnc_name == lncName);
-                if (dw != null)
-                    lncCode = dw.lnc_code;
-            }
-
-            List<EntityParm> dicParm = new List<EntityParm>();
-            string beginTime = this.dteBegin.Text.Replace('-', '.') ;
-            string endTime = this.dteEnd.Text.Replace('-', '.') ;
-            if (beginTime != string.Empty && endTime != string.Empty)
-            {
-                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
-            }
-            if (!string.IsNullOrEmpty(lncCode))
-            {
-                dicParm.Add(Function.GetParm("lncCode", lncCode));
-            }
-            using (ProxyRptFunc proxy = new ProxyRptFunc())
-            {
-                this.gcItemRpt.DataSource = proxy.Service.GetItemRpt(dicParm); ;
-                this.gcItemRpt.RefreshDataSource();
-            }
-
-            if (!string.IsNullOrEmpty(lncName))
-                this.gvItemRpt.GroupPanelText = "体检单位：" + lncName + "    " + beginTime + "~" + endTime;
-            else
-                this.gvItemRpt.GroupPanelText = beginTime + "~" + endTime;
-
-           
-        }
-        #endregion
-
-        #region 体检进度表
+        #region 职业健康检查人员名单及检查结果
         /// <summary>
         /// 
         /// </summary>
-        internal void QueryTjjdb()
-        {
-            List<EntityItemRpt> data = new List<EntityItemRpt>();
-
-            string lncCode = string.Empty;
-            string lncName = this.lueDw.Text;
-            string patName = this.txtPatName.Text;
-            string regNo = this.txtRegNo.Text;
-            if (!string.IsNullOrEmpty(lncName))
-            {
-                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
-                if (dw != null)
-                    lncCode = dw.lnc_code;
-            }
-
-            List<EntityParm> dicParm = new List<EntityParm>();
-            string beginTime = this.dteBegin.Text.Replace('-', '.');
-            string endTime = this.dteEnd.Text.Replace('-', '.');
-            if (beginTime != string.Empty && endTime != string.Empty)
-            {
-                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
-            }
-            if (!string.IsNullOrEmpty(lncCode))
-            {
-                dicParm.Add(Function.GetParm("lncCode", lncCode));
-            }
-            if (!string.IsNullOrEmpty(patName))
-            {
-                dicParm.Add(Function.GetParm("patName", patName));
-            }
-            if (!string.IsNullOrEmpty(regNo))
-            {
-                dicParm.Add(Function.GetParm("regNo", regNo));
-            }
-            using (ProxyRptFunc proxy = new ProxyRptFunc())
-            {
-                this.gcTjjdb.DataSource = proxy.Service.GetTjjdb(dicParm) ;
-                this.gcTjjdb.RefreshDataSource();
-            }
-
-        }
-        #endregion
-
-        #region 挂账分类报表
-        internal void QueryTjgzflb()
-        {
-            List<EntityTjdwgzfl> data = new List<EntityTjdwgzfl>();
-            string lncCode = string.Empty;
-            string lncName = this.lueDw.Text;
-            if (!string.IsNullOrEmpty(lncName))
-            {
-                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
-                if (dw != null)
-                    lncCode = dw.lnc_code;
-            }
-            List<EntityParm> dicParm = new List<EntityParm>();
-            string beginTime = this.dteBegin.Text.Replace('-', '.');
-            string endTime = this.dteEnd.Text.Replace('-', '.');
-            if (beginTime != string.Empty && endTime != string.Empty)
-            {
-                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
-            }
-            if (!string.IsNullOrEmpty(lncCode))
-            {
-                dicParm.Add(Function.GetParm("lncCode", lncCode));
-            }
-            using (ProxyRptFunc proxy = new ProxyRptFunc())
-            {
-                this.gcDwgz.DataSource = proxy.Service.GetTjgzflRpt(dicParm); ;
-                this.gcDwgz.RefreshDataSource();
-            }
-        }
-
-        #endregion
-
-        #region 
-        /// <summary>
-        /// 
-        /// </summary>
-        internal void QueryTjYcRpt()
+        internal void QueryZybRegRpt()
         {
             List<EntityItemRpt> data = new List<EntityItemRpt>();
 
@@ -356,8 +234,7 @@ namespace RptFunc
             }
             if (!string.IsNullOrEmpty(ycgjz))
             {
-
-                if(ycgjz.Contains("+"))
+                if (ycgjz.Contains("+"))
                 {
                     string[] strArr = ycgjz.Split('+');
 
@@ -371,35 +248,49 @@ namespace RptFunc
             }
             if (!string.IsNullOrEmpty(ycgjzF))
             {
-                dicParm.Add(Function.GetParm("ycgjzF", ycgjzF));
+                if (ycgjzF.Contains("+"))
+                {
+                    string[] strArr = ycgjzF.Split('+');
+
+                    foreach (var vo in strArr)
+                    {
+                        dicParm.Add(Function.GetParm("ycgjzF", vo));
+                    }
+                }
+                else
+                    dicParm.Add(Function.GetParm("ycgjzF", ycgjzF));
+
             }
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
-                this.gcTjXmYcRpt.DataSource = proxy.Service.GetYcjgRpt(dicParm);
-                this.gcTjXmYcRpt.RefreshDataSource();
+                this.gcZybRegRpt.DataSource = proxy.Service.GetZybRegRpt(dicParm);
+                this.gcZybRegRpt.RefreshDataSource();
             }
 
         }
         #endregion
 
 
+        #region
+        internal void QueryTjjdb()
+        {
+
+
+        }
+        #endregion
+
         private void btnQuery_Click(object sender, EventArgs e)
         {
             if (tabPane1.SelectedPageIndex == 0)
             {
-                QueryItemRpt();
+                QueryZybRegRpt();
             }
             else if (tabPane1.SelectedPageIndex == 1)
             {
-                QueryTjjdb();
             }
             else if (tabPane1.SelectedPageIndex == 2)
             {
-                QueryTjgzflb();
-            }
-            else if(tabPane1.SelectedPageIndex == 3)
-            {
-                QueryTjYcRpt();
+
             }
         }
 
@@ -407,29 +298,26 @@ namespace RptFunc
         {
             if (tabPane1.SelectedPageIndex == 0)
             {
-                uiHelper.ExportToXls(this.gvItemRpt,true);
+                uiHelper.ExportToXls(this.gvZybRegRpt);
             }
             else if (tabPane1.SelectedPageIndex == 1)
             {
-                uiHelper.ExportToXls(this.gvTjjdb, true);
+              
             }
             else if (tabPane1.SelectedPageIndex == 2)
             {
-                uiHelper.ExportToXls(this.gvDwgz, true);
-            }
-            else if (tabPane1.SelectedPageIndex == 3)
-            {
-                uiHelper.ExportToXls(this.gvTjXmYcRpt, true);
+
             }
         }
 
-        private void gvTjjdb_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void gvZybRegRpt_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            if (gvTjjdb.GetRowCellValue(e.RowHandle, "reg_no") == null)
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
-                e.Appearance.ForeColor = System.Drawing.Color.Red;
+                e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                e.Appearance.ForeColor = Color.Gray;
+                e.Info.DisplayText = Convert.ToString(e.RowHandle + 1);
             }
-            gvTjjdb.Invalidate();
         }
     }
 }

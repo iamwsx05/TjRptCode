@@ -180,17 +180,18 @@ namespace rtpFunc
                 Text = "体检报表"
             };
 
-            WNavbarGroupItem itemXtyyCwReport = new WNavbarGroupItem
+
+            WNavbarGroupItem itemXtyyZybRpt = new WNavbarGroupItem
             {
                 BackColor = bgc,
                 ForeColor = frc,
                 SelectedBackColor = gexc,
                 SelectedForeColor = gcfc,
                 MouseHoverStyle = WNavbarGroupItem.MouseOverStyle.BackColor,
-                Text = "账务报表"
+                Text = "职业病报表"
             };
 
-            navGpXtyy.Items.AddRange(new WNavbarGroupItem[] { itemXtyyFun, itemXtyyReport, itemXtyyCwReport });
+            navGpXtyy.Items.AddRange(new WNavbarGroupItem[] { itemXtyyFun, itemXtyyReport, itemXtyyZybRpt });
             #endregion
 
             #region 陈村医院
@@ -345,8 +346,8 @@ namespace rtpFunc
                     ReflectionByAccVo2(gItem, "frmXtyyRpt");
                 else if(gItem.Text == "账务报表")
                     ReflectionByAccVo2(gItem, "frmXtyySfyRpt");
-                else
-                    ReflectionByAccVo2(gItem, "frmXTYY"); 
+                else if(gItem.Text == "职业病报表")
+                    ReflectionByAccVo2(gItem, "frmXtyyZybRpt"); 
             }
 
             if (gItem.Parent.Text == "职检数据上传")

@@ -43,13 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entityDlyy.cs" />
+    <Compile Include="entityfhljlrpt.cs" />
     <Compile Include="entityNhpk.cs" />
     <Compile Include="entityTjdwgzfl.cs" />
     <Compile Include="entitytjjdb.cs" />
     <Compile Include="entitytjsfjkmx.cs" />
     <Compile Include="entityXinyi.cs" />
+    <Compile Include="entityxmfl.cs" />
     <Compile Include="entityXTYY.cs" />
+    <Compile Include="entityycjgrpt.cs" />
     <Compile Include="entityZkfy.cs" />
+    <Compile Include="entityzybregrpt.cs" />
     <Compile Include="GlobalDic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -36,6 +36,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="comm.control, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\debug\comm.control.dll</HintPath>
+    </Reference>
     <Reference Include="comm.utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\debug\comm.utils.dll</HintPath>
@@ -94,6 +98,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="wecare.core, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\debug\wecare.core.dll</HintPath>
+    </Reference>
     <Reference Include="wecare.iis">
       <HintPath>..\..\..\debug\wecare.iis.dll</HintPath>
     </Reference>
@@ -111,6 +119,12 @@
     <Compile Include="function\ExcelHelper.cs" />
     <Compile Include="proxy\proxyrptfunc.cs" />
     <Compile Include="proxy\proxyXtLis.cs" />
+    <Compile Include="ui\frmXtyyZybRpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\frmXtyyZybRpt.Designer.cs">
+      <DependentUpon>frmXtyyZybRpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\frmXtyySfyRpt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +154,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="function\pywbCommon.cs" />
     <Compile Include="function\XmlOperation.cs" />
+    <EmbeddedResource Include="ui\frmXtyyZybRpt.resx">
+      <DependentUpon>frmXtyyZybRpt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\frmXtyySfyRpt.resx">
       <DependentUpon>frmXtyySfyRpt.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,10 +192,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\comm.control\comm.control.csproj">
-      <Project>{415a6157-ffbe-40ba-b933-70151e1f04ae}</Project>
-      <Name>comm.control</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\rptFunc.entity\rptFunc.entity.csproj">
       <Project>{2a76f4a3-14e9-4239-af03-f5b5d46eae4b}</Project>
       <Name>rptFunc.entity</Name>
@@ -186,10 +199,6 @@
     <ProjectReference Include="..\..\rptFunc.itf\rptFunc.itf.csproj">
       <Project>{927746AA-832E-4BA5-A835-A890906B8DCD}</Project>
       <Name>rptFunc.itf</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\wecare.core\wecare.core.csproj">
-      <Project>{29eb1dd7-a9cd-4549-a6ac-1ae99cae93fc}</Project>
-      <Name>wecare.core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

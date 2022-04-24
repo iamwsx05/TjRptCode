@@ -57,6 +57,16 @@ namespace RtpFunc.Svc
         }
         #endregion
 
+        #region 异常报表
+        public List<EntityYcjgRpt> GetYcjgRpt(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetYcjgRpt(parms);
+            }
+        }
+        #endregion
+
         #region 体检收费员交款明细
         /// <summary>
         /// 
@@ -68,6 +78,21 @@ namespace RtpFunc.Svc
             using (BizRptFunc biz = new BizRptFunc())
             {
                 return biz.GetTjSfJkmx(parms);
+            }
+        }
+        #endregion
+
+        #region
+        /// <summary>
+        /// 职业健康检查人员名单及检查结果
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityZybRegRpt> GetZybRegRpt(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetZybRegRpt(parms);
             }
         }
         #endregion
@@ -118,6 +143,20 @@ namespace RtpFunc.Svc
             using (BizRptFunc biz = new BizRptFunc())
             {
                 return biz.GetZdDw();
+            }
+        }
+        #endregion
+
+        #region 项目分类
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<EntityXmfl> GetZdXmfl()
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetZdXmfl();
             }
         }
         #endregion
