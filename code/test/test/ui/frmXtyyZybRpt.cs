@@ -1,6 +1,7 @@
 ﻿using Common.Controls;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraGrid.Views.Grid;
 using RptFunc.Entity;
 using RptFunc.Xtyy;
 using Spire.Xls;
@@ -170,21 +171,6 @@ namespace RptFunc
 
         #endregion
 
-        #region GetRowObj
-        //public EntityPeItem GetRowObjPeItem()
-        //{
-        //    if (this.gvPeResult.FocusedRowHandle < 0)
-        //        return null;
-        //    else
-        //    {
-        //        EntityPeItem vo = this.gvPeResult.GetRow(this.gvPeResult.FocusedRowHandle) as EntityPeItem;
-        //        return vo;
-        //    }
-        //}
-
-
-        #endregion
-
         #region 职业健康检查人员名单及检查结果
         /// <summary>
         /// 
@@ -270,11 +256,103 @@ namespace RptFunc
         }
         #endregion
 
-
-        #region
-        internal void QueryTjjdb()
+        #region 肺活量
+        /// <summary>
+        /// 
+        /// </summary>
+        internal void QueryFhljlRpts()
         {
+            List<EntityFhljlRpt> data = new List<EntityFhljlRpt>();
 
+            string lncCode = string.Empty;
+            string lncName = this.lueDw.Text;
+            string cls_name = this.lueXmfl.Text;
+            string cls_code = string.Empty;
+            string regNo = this.txtRegNo.Text;
+            if (!string.IsNullOrEmpty(lncName))
+            {
+                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
+                if (dw != null)
+                    lncCode = dw.lnc_code;
+            }
+            if (!string.IsNullOrEmpty(cls_name))
+            {
+                EntityXmfl vo = lstXmfl.Find(r => r.cls_name == cls_name);
+                if (vo != null)
+                    cls_code = vo.cls_code;
+            }
+
+            List<EntityParm> dicParm = new List<EntityParm>();
+            string beginTime = this.dteBegin.Text.Replace('-', '.');
+            string endTime = this.dteEnd.Text.Replace('-', '.');
+            if (beginTime != string.Empty && endTime != string.Empty)
+            {
+                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
+            }
+            if (!string.IsNullOrEmpty(lncCode))
+            {
+                dicParm.Add(Function.GetParm("lncCode", lncCode));
+            }
+            if (!string.IsNullOrEmpty(regNo))
+            {
+                dicParm.Add(Function.GetParm("regNo", regNo));
+            }
+
+            using (ProxyRptFunc proxy = new ProxyRptFunc())
+            {
+                this.gcFgnjlRpt.DataSource = proxy.Service.GetFhljlRpts(dicParm);
+                this.gcFgnjlRpt.RefreshDataSource();
+            }
+        }
+        #endregion
+
+        #region 职业健康检查结果一览表
+        /// <summary>
+        /// 
+        /// </summary>
+        internal void QueryZybjgRpt()
+        {
+            List<EntityZybjgRpt> data = new List<EntityZybjgRpt>();
+
+            string lncCode = string.Empty;
+            string lncName = this.lueDw.Text;
+            string cls_name = this.lueXmfl.Text;
+            string cls_code = string.Empty;
+            string regNo = this.txtRegNo.Text;
+            if (!string.IsNullOrEmpty(lncName))
+            {
+                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
+                if (dw != null)
+                    lncCode = dw.lnc_code;
+            }
+            if (!string.IsNullOrEmpty(cls_name))
+            {
+                EntityXmfl vo = lstXmfl.Find(r => r.cls_name == cls_name);
+                if (vo != null)
+                    cls_code = vo.cls_code;
+            }
+
+            List<EntityParm> dicParm = new List<EntityParm>();
+            string beginTime = this.dteBegin.Text.Replace('-', '.');
+            string endTime = this.dteEnd.Text.Replace('-', '.');
+            if (beginTime != string.Empty && endTime != string.Empty)
+            {
+                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
+            }
+            if (!string.IsNullOrEmpty(lncCode))
+            {
+                dicParm.Add(Function.GetParm("lncCode", lncCode));
+            }
+            if (!string.IsNullOrEmpty(regNo))
+            {
+                dicParm.Add(Function.GetParm("regNo", regNo));
+            }
+
+            using (ProxyRptFunc proxy = new ProxyRptFunc())
+            {
+                this.gcZybjgRpt.DataSource = proxy.Service.GetZybjgRpts(dicParm);
+                this.gcZybjgRpt.RefreshDataSource();
+            }
 
         }
         #endregion
@@ -287,10 +365,11 @@ namespace RptFunc
             }
             else if (tabPane1.SelectedPageIndex == 1)
             {
+                QueryFhljlRpts();
             }
             else if (tabPane1.SelectedPageIndex == 2)
             {
-
+                QueryZybjgRpt();
             }
         }
 
@@ -302,11 +381,11 @@ namespace RptFunc
             }
             else if (tabPane1.SelectedPageIndex == 1)
             {
-              
+                uiHelper.ExportToXls(this.gvFgnjlRpt);
             }
             else if (tabPane1.SelectedPageIndex == 2)
             {
-
+                uiHelper.ExportToXls(this.gvZybjgRpt);
             }
         }
 
@@ -318,6 +397,25 @@ namespace RptFunc
                 e.Appearance.ForeColor = Color.Gray;
                 e.Info.DisplayText = Convert.ToString(e.RowHandle + 1);
             }
+        }
+
+        private void gvFgnjlRpt_CellMerge(object sender, DevExpress.XtraGrid.Views.Grid.CellMergeEventArgs e)
+        {
+            string reg_no1 = gvFgnjlRpt.GetRowCellValue(e.RowHandle1, "reg_no").ToString();
+            string reg_no2 = gvFgnjlRpt.GetRowCellValue(e.RowHandle2, "reg_no").ToString();
+
+            if (e.Column.FieldName == "reg_date" || 
+                e.Column.FieldName == "lnc_name" ||
+                e.Column.FieldName == "pat_name" || 
+                e.Column.FieldName == "sex" || 
+                e.Column.FieldName == "reg_no" || 
+                e.Column.FieldName == "age" ||
+                e.Column.FieldName == "idcard" )
+            {
+                e.Merge = reg_no1.Equals(reg_no2);
+                e.Handled = true;
+            }
+
         }
     }
 }

@@ -11,6 +11,8 @@ namespace RptFunc.Entity
         [DataMember]
         public string reg_no { get; set; }
         [DataMember]
+        public string lnc_name { get; set; }
+        [DataMember]
         public string reg_date { get; set; }
         [DataMember]
         public string pat_name { get; set; }// 

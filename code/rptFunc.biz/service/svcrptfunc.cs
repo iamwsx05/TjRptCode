@@ -82,6 +82,7 @@ namespace RtpFunc.Svc
         }
         #endregion
 
+
         #region
         /// <summary>
         /// 职业健康检查人员名单及检查结果
@@ -93,6 +94,36 @@ namespace RtpFunc.Svc
             using (BizRptFunc biz = new BizRptFunc())
             {
                 return biz.GetZybRegRpt(parms);
+            }
+        }
+        #endregion
+
+        #region
+        /// <summary>
+        /// 肺活量记录表
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityFhljlRpt> GetFhljlRpts(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetFhljlRpts(parms);
+            }
+        }
+        #endregion
+
+        #region 职业病结果报表
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityZybjgRpt> GetZybjgRpts(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetZybjgRpts(parms);
             }
         }
         #endregion

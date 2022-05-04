@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="entityDlyy.cs" />
     <Compile Include="entityfhljlrpt.cs" />
+    <Compile Include="entityitemresult.cs" />
     <Compile Include="entityNhpk.cs" />
     <Compile Include="entityTjdwgzfl.cs" />
     <Compile Include="entitytjjdb.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="entityXTYY.cs" />
     <Compile Include="entityycjgrpt.cs" />
     <Compile Include="entityZkfy.cs" />
+    <Compile Include="entityzybjgrpt.cs" />
     <Compile Include="entityzybregrpt.cs" />
     <Compile Include="GlobalDic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
