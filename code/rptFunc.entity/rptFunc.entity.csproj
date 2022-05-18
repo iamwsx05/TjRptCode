@@ -49,10 +49,12 @@
     <Compile Include="entityTjdwgzfl.cs" />
     <Compile Include="entitytjjdb.cs" />
     <Compile Include="entitytjsfjkmx.cs" />
+    <Compile Include="entitytjywflrpt.cs" />
     <Compile Include="entityXinyi.cs" />
     <Compile Include="entityxmfl.cs" />
     <Compile Include="entityXTYY.cs" />
     <Compile Include="entityycjgrpt.cs" />
+    <Compile Include="entityzdzy.cs" />
     <Compile Include="entityZkfy.cs" />
     <Compile Include="entityzybjgrpt.cs" />
     <Compile Include="entityzybregrpt.cs" />

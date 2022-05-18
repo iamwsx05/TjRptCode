@@ -42,6 +42,7 @@ namespace RptFunc
 
         List<EntityDw> lstDw = null;
         List<EntityXmfl> lstXmfl = null;
+        List<EntityZdzy> lstZy = null;
 
         #region Init
         void Init()
@@ -51,11 +52,13 @@ namespace RptFunc
             this.dteEnd.Text = dteNow.ToString("yyyy-MM-dd");
             lstDw = new List<EntityDw>();
             lstXmfl = new List<EntityXmfl>();
+            lstZy = new List<EntityZdzy>();
 
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
                 lstDw = proxy.Service.GetZdDw();
                 lstXmfl = proxy.Service.GetZdXmfl();
+                lstZy = proxy.Service.GetZdZy();
             }
 
             this.lueDw.Properties.PopupWidth = this.lueDw.Width;
@@ -94,6 +97,25 @@ namespace RptFunc
             {
                 this.lueXmfl.Properties.DataSource = lstXmfl.ToArray();
                 this.lueXmfl.Properties.SetSize();
+            }
+
+            this.lueYwfl.Properties.PopupWidth = this.lueDw.Width;
+            this.lueYwfl.Properties.PopupHeight = 400;
+            this.lueYwfl.Properties.ValueColumn = EntityZdzy.Columns.job_code;
+            this.lueYwfl.Properties.DisplayColumn = EntityZdzy.Columns.job_name;
+            this.lueYwfl.Properties.Essential = false;
+            this.lueYwfl.Properties.IsShowColumnHeaders = true;
+            this.lueYwfl.Properties.ColumnWidth.Add(EntityZdzy.Columns.job_code, 70);
+            this.lueYwfl.Properties.ColumnWidth.Add(EntityZdzy.Columns.job_name, this.lueDw.Width - 70);
+            this.lueYwfl.Properties.ColumnHeaders.Add(EntityZdzy.Columns.job_code, "编码");
+            this.lueYwfl.Properties.ColumnHeaders.Add(EntityZdzy.Columns.job_name, "名称");
+            this.lueYwfl.Properties.ShowColumn = EntityZdzy.Columns.job_code + "|" + EntityZdzy.Columns.job_name;
+            this.lueYwfl.Properties.IsUseShowColumn = true;
+            this.lueYwfl.Properties.FilterColumn = EntityZdzy.Columns.job_code + "|" + EntityZdzy.Columns.job_name;
+            if (lstZy != null)
+            {
+                this.lueYwfl.Properties.DataSource = lstZy.ToArray();
+                this.lueYwfl.Properties.SetSize();
             }
         }
         #endregion
@@ -300,14 +322,14 @@ namespace RptFunc
             }
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
-                this.gcDwgz.DataSource = proxy.Service.GetTjgzflRpt(dicParm); ;
+                this.gcDwgz.DataSource = proxy.Service.GetTjgzflRpt(dicParm).OrderBy( i => i.lnc_name);
                 this.gcDwgz.RefreshDataSource();
             }
         }
 
         #endregion
 
-        #region 
+        #region 异常报表
         /// <summary>
         /// 
         /// </summary>
@@ -382,6 +404,60 @@ namespace RptFunc
         }
         #endregion
 
+        #region 分类报表
+        /// <summary>
+        /// 
+        /// </summary>
+        internal void QueryTjywflRpts()
+        {
+            List<EntityTjywflRpt> data = new List<EntityTjywflRpt>();
+            string lncName = this.lueDw.Text;
+            string lncCode = string.Empty;
+            string jobCodoe = string.Empty;
+            string jobName = this.lueYwfl.Text;
+            string patName = this.txtPatName.Text;
+            string regNo = this.txtRegNo.Text;
+
+            if (!string.IsNullOrEmpty(lncName))
+            {
+                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
+                if (dw != null)
+                    lncCode = dw.lnc_code;
+            }
+            if (!string.IsNullOrEmpty(jobName))
+            {
+                EntityZdzy zy = lstZy.Find(r => r.job_name == jobName);
+                if (zy != null)
+                    jobCodoe = zy.job_code;
+            }
+
+            List<EntityParm> dicParm = new List<EntityParm>();
+            string beginTime = this.dteBegin.Text.Replace('-', '.');
+            string endTime = this.dteEnd.Text.Replace('-', '.');
+            if (beginTime != string.Empty && endTime != string.Empty)
+            {
+                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
+            }
+            if (!string.IsNullOrEmpty(lncCode))
+            {
+                dicParm.Add(Function.GetParm("lncCode", lncCode));
+            }
+            if (!string.IsNullOrEmpty(jobCodoe))
+            {
+                dicParm.Add(Function.GetParm("jobName", jobCodoe));
+            }
+            if (!string.IsNullOrEmpty(regNo))
+            {
+                dicParm.Add(Function.GetParm("regNo", regNo));
+            }
+            using (ProxyRptFunc proxy = new ProxyRptFunc())
+            {
+                this.gcTjYwflRpt.DataSource = proxy.Service.GetTjywflRpts(dicParm);
+                this.gcTjYwflRpt.RefreshDataSource();
+            }
+        }
+
+        #endregion
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -397,9 +473,13 @@ namespace RptFunc
             {
                 QueryTjgzflb();
             }
-            else if(tabPane1.SelectedPageIndex == 3)
+            else if (tabPane1.SelectedPageIndex == 3)
             {
                 QueryTjYcRpt();
+            }
+            else if (tabPane1.SelectedPageIndex == 4)
+            {
+                QueryTjywflRpts();
             }
         }
 
@@ -427,9 +507,18 @@ namespace RptFunc
         {
             if (gvTjjdb.GetRowCellValue(e.RowHandle, "reg_no") == null)
             {
-                e.Appearance.ForeColor = System.Drawing.Color.Red;
+                e.Appearance.BackColor = System.Drawing.Color.Red;
             }
             gvTjjdb.Invalidate();
+        }
+
+        private void gvTjYwflRpt_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (gvTjYwflRpt.GetRowCellValue(e.RowHandle, "reg_date") == null)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            gvTjYwflRpt.Invalidate();
         }
     }
 }

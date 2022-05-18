@@ -22,7 +22,7 @@ namespace RptFunc.Biz
             string lncName = string.Empty;
             string strSub = string.Empty;
             SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
-            string sql = @"select * from (select b.reg_date,b.lnc_code, b.reg_no, 
+            string sql = @"select * from (select b.reg_date,b.lnc_code, b.reg_no ,a.pat_name, 
                                      e.comb_code,e.cls_code,
                                      e.comb_name,
                                       deptName= (select dept_name from zdKs where dept_code = e.dept_code),
@@ -35,8 +35,9 @@ namespace RptFunc.Biz
                                            b.reg_no = d.reg_no and           
                                            d.comb_code = e.comb_code            
                                            and  b.active = 'T'
+                                            and b.lnc_code <> '0000' 
                                      union all 
-                                     select  b.reg_date, b.lnc_code, b.reg_no, 
+                                     select  b.reg_date, b.lnc_code, b.reg_no,a.pat_name, 
                                      e.comb_code,e.cls_code,
                                      e.comb_name,
                                      deptName= (select dept_name from zdKs where dept_code = e.dept_code),
@@ -47,7 +48,8 @@ namespace RptFunc.Biz
                                      where a.pat_code = b.pat_code and             
                                            a.reg_times = b.reg_times and        
                                            b.reg_no = d.reg_no and           
-                                           d.comb_code = e.comb_code                   
+                                           d.comb_code = e.comb_code 
+                                            and b.lnc_code <> '0000' 
                                            and  b.active = 'T')  tmp where reg_date between ? and ?  and reg_no not in('220327820003','220327820002','220325820003')";
             List<IDataParameter> lstParm = new List<IDataParameter>();
             if (parms != null)
@@ -81,7 +83,9 @@ namespace RptFunc.Biz
                 foreach (DataRow dr in dt.Rows)
                 {
                     EntityItemRpt vo = new EntityItemRpt();
-
+                    string pat_name = dr["pat_name"].ToString();
+                    if (pat_name.Contains("1") || pat_name.Contains("-") || pat_name.Contains("2") || pat_name.Contains("4") || pat_name.Contains("测试"))
+                        continue;
                     vo.itemCode = dr["comb_code"].ToString().Trim();
                     vo.itemName = dr["comb_name"].ToString().Trim();
                     vo.zk = (Function.Dec(dr["rate"]) * 100).ToString() + "%";
@@ -122,12 +126,17 @@ namespace RptFunc.Biz
         public List<EntityTjdwgzfl> GetTjgzflRpt(List<EntityParm> parms)
         {
             List<EntityTjdwgzfl> data = new List<EntityTjdwgzfl>();
+            List<EntityDwRs> dataRs = new List<EntityDwRs>();
             Dictionary<string, decimal> dicHj = new Dictionary<string, decimal>();
+            List<string> lstLnc = new List<string>();
+            
             string lncCode = string.Empty;
             string lncName = string.Empty;
             string strSub = string.Empty;
             SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
-            string sql = @"select * from (select b.reg_date,b.lnc_code, 
+
+            #region  SQL
+            string sql = @"select * from (select b.reg_date,b.lnc_code, a.pat_name,
 									lnc_name = (select lnc_name from zddw where lnc_code = b.lnc_code),
 									b.reg_no, 
                                      e.comb_code,e.cls_code,
@@ -144,8 +153,9 @@ namespace RptFunc.Biz
                                            b.reg_no = d.reg_no and           
                                            d.comb_code = e.comb_code            
                                            and  b.active = 'T'
+                                           and b.lnc_code <> '0000' 
                                      union all 
-                                     select  b.reg_date, b.lnc_code, 
+                                     select  b.reg_date, b.lnc_code, a.pat_name,
                                      lnc_name = (select lnc_name from zddw where lnc_code = b.lnc_code),
                                      b.reg_no, 
                                      e.comb_code,e.cls_code,
@@ -160,8 +170,11 @@ namespace RptFunc.Biz
                                      where a.pat_code = b.pat_code and             
                                            a.reg_times = b.reg_times and        
                                            b.reg_no = d.reg_no and           
-                                           d.comb_code = e.comb_code                   
+                                           d.comb_code = e.comb_code
+                                            and b.lnc_code <> '0000' 
                                            and  b.active = 'T')  tmp where reg_date between ? and ? and reg_no not in('220327820003','220327820002','220325820003') ";
+            #endregion
+
             List<IDataParameter> lstParm = new List<IDataParameter>();
             if (parms != null)
             {
@@ -187,6 +200,7 @@ namespace RptFunc.Biz
             sql += strSub;
             DataTable dt = svc.GetDataTable(sql, lstParm.ToArray());
             int n = 0;
+            string regNo = string.Empty;
             string lnc_code = string.Empty;
             string lnc_name = string.Empty;
             decimal dj = 0;
@@ -195,7 +209,9 @@ namespace RptFunc.Biz
                 foreach (DataRow dr in dt.Rows)
                 {
                     EntityTjdwgzfl vo = new EntityTjdwgzfl();
-
+                    string pat_name = dr["pat_name"].ToString();
+                    if (pat_name.Contains("1") || pat_name.Contains("-") || pat_name.Contains("2") || pat_name.Contains("4") || pat_name.Contains("测试"))
+                        continue;
                     vo.zdrq = DateTime.Now.ToString("yyyy-MM-dd");
                     vo.pzbh = "";
                     lnc_code = dr["lnc_code"].ToString().Trim();
@@ -205,7 +221,7 @@ namespace RptFunc.Biz
                     dj = Function.Dec((Function.Dec(dr["price1"]) * Function.Dec(dr["rate"])).ToString("0.00"));
                     if (string.IsNullOrEmpty(lnc_code))
                     {
-                        vo.lnc_code = "999999";
+                        vo.lnc_code = "0001";
                         vo.lnc_name = "个人体检";
                     }
                     if (data.Any(r => r.lnc_code == vo.lnc_code && r.fyfl == vo.fyfl))
@@ -228,6 +244,20 @@ namespace RptFunc.Biz
                     {
                         dicHj.Add(vo.lnc_code, vo.hj);
                     }
+                    #region 算人次
+                    if (!lstLnc.Contains(vo.lnc_code))
+                        lstLnc.Add(vo.lnc_code);  
+                    
+                    EntityDwRs voR = new EntityDwRs();
+                    voR.lnc_code = vo.lnc_code;
+                    voR.reg_no = dr["reg_no"].ToString();
+                    if (!dataRs.Any(r => r.reg_no == voR.reg_no ))
+                    {
+                        dataRs.Add(voR);
+                    }
+ 
+                    #endregion
+
                 }
 
                 foreach (var vo in data)
@@ -235,8 +265,9 @@ namespace RptFunc.Biz
                     if (dicHj.ContainsKey(vo.lnc_code))
                     {
                         vo.hj = dicHj[vo.lnc_code];
-                        continue;
                     }
+
+                    vo.rs = dataRs.FindAll(r => r.lnc_code == vo.lnc_code).Count;
                 }
             }
 
@@ -472,70 +503,6 @@ namespace RptFunc.Biz
             return data;
         }
 
-        #endregion
-
-        #region 单位
-        public List<EntityDw> GetZdDw()
-        {
-            List<EntityDw> data = new List<EntityDw>();
-
-            try
-            {
-                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
-                string sql = @"select * from zddw";
-
-                DataTable dt = svc.GetDataTable(sql);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        EntityDw vo = Function.Row2Model<EntityDw>(dr);
-                        data.Add(vo);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.ToString());
-            }
-
-            return data;
-        }
-        #endregion
-
-        #region 项目分类
-        public List<EntityXmfl> GetZdXmfl()
-        {
-            List<EntityXmfl> data = new List<EntityXmfl>();
-
-            try
-            {
-                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
-                string sql = @"select * from zdxmfl a where a.cls_code in ('02','03','04','05','06','07','08','09','11','15','18','49')";
-
-                DataTable dt = svc.GetDataTable(sql);
-
-                if (dt != null && dt.Rows.Count > 0)
-                {
-
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        EntityXmfl vo = new EntityXmfl();
-                        vo.cls_code = dr["cls_code"].ToString().Trim();
-                        vo.cls_name = dr["cls_name"].ToString().Trim();
-                        data.Add(vo);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.ToString());
-            }
-
-            return data;
-        }
         #endregion
 
         #region 项目进度
@@ -1638,6 +1605,249 @@ namespace RptFunc.Biz
                     {
                         EntityItemResult vo = new EntityItemResult();
                         vo = Function.Row2Model<EntityItemResult>(dr);
+                        data.Add(vo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLog.OutPutException(ex);
+            }
+
+            return data;
+        }
+        #endregion
+
+        #region 体检业务分类报表
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityTjywflRpt> GetTjywflRpts(List<EntityParm> parms)
+        {
+            List<EntityTjywflRpt> data = new List<EntityTjywflRpt>();
+            string strSub = string.Empty;
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                string sql = @"  SELECT b.job,
+                                     job_name = (select job_name from zdZy where job_code = b.job),
+	                                 a.reg_no,   
+                                     b.pat_name,   
+                                     sex = (case b.sex when '1' then '男' when '2' then '女' else '/' end),   
+                                     b.age,   
+                                     b.idcard,   
+                                     b.tel,
+                                     b.lnc_code, 
+                                     lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code  ),
+                                     a.reg_date,   
+                                     a.flag,  
+                                     a.c_flag,
+                                     isnull(a.active,'F') as active,   
+			                         isnull(a.f_flag,'F') as f_flag,
+			                         sum_total_gr = isnull((select sum(isnull(aa.total,0.00))
+						                            from ywCfmx aa,ywCf bb,ywSfcf d ,ywDjxx c 
+						                            where aa.rec_no = bb.rec_no and bb.reg_no = c.reg_no and aa.chrg_no = d.chrg_no and bb.rec_no = d.rec_no and bb.reg_no = a.reg_no and bb.chrg_flag = 'T' and bb.class = '1'),0.00),
+			                          yje = (select sum(total) from ywFyxm where reg_no = a.reg_no),
+			                          pt_je = isnull((select SUM(rb_total) from ywTjxmzx where reg_no = a.reg_no and ISNULL(zyb_flag,'F') = 'F'),0) +
+					                            isnull((select SUM(rb_total) from ywTjxm where reg_no = a.reg_no and ISNULL(zyb_flag,'F') = 'F'),0),
+		                              zyb_je = isnull((select SUM(rb_total) from ywTjxmzx where reg_no = a.reg_no and ISNULL(zyb_flag,'F') = 'T'),0) +
+					                            isnull((select SUM(rb_total) from ywTjxm where reg_no = a.reg_no and ISNULL(zyb_flag,'F') = 'T'),0)		
+                                FROM ywDjxx a,   
+                                     ywBrxx b  
+                                WHERE a.pat_code = b.pat_code 
+			                            and a.reg_times = b.reg_times 
+			                            and isnull(a.delfee_flag,'F') <> 'T'  
+			                            and a.active = 'T' 
+                                        and a.lnc_code <> '0000'
+                                        and a.flag <> 'Z'
+			                            and a.reg_date between ? and ? ";
+                List<IDataParameter> lstParm = new List<IDataParameter>();
+                if (parms != null)
+                {
+                    foreach (var po in parms)
+                    {
+                        switch (po.key)
+                        {
+                            case "regDate":
+                                IDataParameter[] parm = svc.CreateParm(2);
+                                parm[0].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[0]);
+                                parm[1].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[1]);
+                                break;
+                            case "lncCode":
+                                strSub += " and a.lnc_code = '" + po.value + "'";
+                                break;
+                            case "jobName":
+                                strSub += " and b.job = '" + po.value + "'";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                sql += strSub + Environment.NewLine + " order by job_name,a.reg_date,a.reg_no";
+                DataTable dt = svc.GetDataTable(sql, lstParm.ToArray());
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    string jobName = string.Empty;
+                    string lastJobName = string.Empty;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        EntityTjywflRpt vo = new EntityTjywflRpt();
+                        vo.tel = dr["tel"].ToString();
+                        vo.job_name = dr["job_name"].ToString();
+                        vo.reg_no = dr["reg_no"].ToString();
+                        vo.pat_name = dr["pat_name"].ToString();
+                        if (vo.pat_name.Contains("1") || vo.pat_name.Contains("-") || vo.pat_name.Contains("2") || vo.pat_name.Contains("4") || vo.pat_name.Contains("测试"))
+                            continue;
+                        vo.sex = dr["sex"].ToString();
+                        vo.age = dr["age"].ToString();
+                        vo.idcard = dr["idcard"].ToString();
+                        vo.reg_date = dr["reg_date"].ToString();
+                        vo.lnc_name = dr["lnc_name"].ToString();
+                        vo.cFlag = dr["c_flag"].ToString().Trim();
+                        vo.sumGr = Function.Dec(dr["pt_je"]) + Function.Dec(dr["zyb_je"]);
+                        if (vo.cFlag == "1")
+                            vo.cFlag = "团检";
+                        else
+                            vo.cFlag = "个检";
+
+                        vo.fFlag = dr["f_flag"].ToString().Trim() ;
+                        if (vo.fFlag == "F")
+                            vo.fFlag = "未收费";
+                        else
+                            vo.fFlag = "已收费";
+                        vo.status = dr["flag"].ToString().Trim();
+                        if (vo.status == "P" || vo.status == "R")
+                            vo.status = "已审核";
+                        else if (vo.status == "S" )
+                            vo.status = "已总检未审核";
+                        else 
+                            vo.status = "未总检未审核";
+                        jobName = dr["job_name"].ToString().Trim();
+                        if (data.Count == 0)
+                            lastJobName = jobName;
+                        if(lastJobName != jobName)
+                        {
+                            EntityTjywflRpt vo2 = new EntityTjywflRpt();
+                            vo2.job_name = "合计";
+                            vo2.reg_no = data.FindAll(r=>r.job_name == lastJobName).Count().ToString();
+                            vo2.sumGr = Math.Round( data.FindAll(r => r.job_name == lastJobName).Sum(t => t.sumGr),2);
+                            data.Add(vo2);
+                            lastJobName = jobName;
+                        }
+
+                        data.Add(vo);
+                    }
+
+                    EntityTjywflRpt vo3 = new EntityTjywflRpt();
+                    vo3.job_name = "合计";
+                    vo3.reg_no = data.FindAll(r => r.job_name == jobName).Count().ToString();
+                    vo3.sumGr = Math.Round(data.FindAll(r => r.job_name == lastJobName).Sum(t => t.sumGr),2);
+                    data.Add(vo3);
+                }
+            }
+            catch(Exception ex)
+            {
+                ExceptionLog.OutPutException(ex); 
+            }
+
+            return data;
+        }
+        #endregion
+
+        #region 项目分类
+        public List<EntityXmfl> GetZdXmfl()
+        {
+            List<EntityXmfl> data = new List<EntityXmfl>();
+
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                string sql = @"select * from zdxmfl a where a.cls_code in ('02','03','04','05','06','07','08','09','11','15','18','49')";
+
+                DataTable dt = svc.GetDataTable(sql);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        EntityXmfl vo = new EntityXmfl();
+                        vo.cls_code = dr["cls_code"].ToString().Trim();
+                        vo.cls_name = dr["cls_name"].ToString().Trim();
+                        data.Add(vo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+
+            return data;
+        }
+        #endregion
+
+        #region 单位
+        public List<EntityDw> GetZdDw()
+        {
+            List<EntityDw> data = new List<EntityDw>();
+
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                string sql = @"select * from zddw";
+
+                DataTable dt = svc.GetDataTable(sql);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        EntityDw vo = Function.Row2Model<EntityDw>(dr);
+                        data.Add(vo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+
+            return data;
+        }
+        #endregion
+
+
+        #region 职业分类
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<EntityZdzy> GetZdZy()
+        {
+            List<EntityZdzy> data = new List<EntityZdzy>();
+
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                string sql = @"select * from zdzy a";
+
+                DataTable dt = svc.GetDataTable(sql);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        EntityZdzy vo = new EntityZdzy();
+                        vo.job_code = dr["job_code"].ToString().Trim();
+                        vo.job_name = dr["job_name"].ToString().Trim();
                         data.Add(vo);
                     }
                 }

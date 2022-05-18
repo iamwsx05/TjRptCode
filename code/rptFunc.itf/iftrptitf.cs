@@ -61,6 +61,12 @@ namespace RtpFunc.Itf
         [OperationContract(Name = "GetZybjgRpts")]
         List<EntityZybjgRpt> GetZybjgRpts(List<EntityParm> parms);
 
+        [OperationContract(Name = "GetTjywflRpts")]
+        List<EntityTjywflRpt> GetTjywflRpts(List<EntityParm> parms);
+
+        [OperationContract(Name = "GetZdZy")]
+        List<EntityZdzy> GetZdZy();
+
         /// <summary>
         /// 本地参数配置
         /// </summary>

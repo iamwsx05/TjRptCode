@@ -24,5 +24,15 @@ namespace RptFunc.Entity
         public decimal hj { get; set; }
         [DataMember]
         public decimal flhj { get; set; }
+        [DataMember]
+        public int rs { get; set; }
+    }
+
+    public class EntityDwRs
+    {
+        [DataMember]
+        public string lnc_code { get; set; }
+        [DataMember]
+        public string reg_no { get; set; }
     }
 }
