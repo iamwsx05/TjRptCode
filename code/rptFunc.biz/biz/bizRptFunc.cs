@@ -1758,6 +1758,185 @@ namespace RptFunc.Biz
             return data;
         }
         #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityGzlRpt> GetGzlRpts(List<EntityParm> parms)
+        {
+            List<EntityGzlRpt> data = new List<EntityGzlRpt>();
+            string strSub = string.Empty;
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                string sql = @" select * from (select b.job,
+		                                 d.job_name,
+                                         a.REG_NO,
+		                                 a.flag,
+		                                 b.PAT_NAME,
+		                                 CASE b.SEX WHEN '1' THEN '男' WHEN '2' THEN '女' ELSE '/' END AS sex,
+		                                 b.AGE,
+		                                 b.IDCARD,
+		                                 a.reg_date,
+		                                 b.tel,
+		                                 a.lnc_code,
+		                                 lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+		                                 c.cls_code,
+		                                 c.comb_code,
+		                                 f.comb_name,
+		                                 g.price1,
+		                                 c.doct_name
+                                FROM   ywDjxx a,
+		                                 ywBrxx b,
+		                                 ywTjxmzx g,
+		                                 ywTjbgzx c,
+		                                 ywTjbgzybsjg e,
+		                                 zdzhxm f,
+		                                 zdZy d
+                                WHERE a.PAT_CODE = b.PAT_CODE and a.REG_TIMES = b.REG_TIMES 
+		                                and a.REG_NO *= c.REG_NO
+		                                and b.job = d.job_code
+		                                and a.reg_no *= e.reg_no
+		                                and a.reg_no  *= g.reg_no
+		                                and g.comb_code =  c.comb_code
+		                                and c.comb_code = f.comb_code
+                                        and a.active = 'T'
+		                               and (a.reg_date between ? and ?)      
+                                 union all
+                                        select b.job,
+		                                 d.job_name,
+                                         a.REG_NO,
+		                                 a.flag,
+		                                 b.PAT_NAME,
+		                                 CASE b.SEX WHEN '1' THEN '男' WHEN '2' THEN '女' ELSE '/' END AS sex,
+		                                 b.AGE,
+		                                 b.IDCARD,
+		                                a.reg_date,
+		                                 b.tel,
+		                                 a.lnc_code,
+		                                 lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+		                                 c.cls_code,
+		                                 c.comb_code,
+		                                 f.comb_name,
+		                                 g.price1,
+		                                 c.doct_name
+                                FROM   ywDjxx a,
+		                                 ywBrxx b,
+		                                 ywTjbg c,
+		                                 ywTjxm g,
+		                                 ywTjbgzybsjg e,
+		                                 zdzhxm f,
+		                                 zdZy d
+                                WHERE a.PAT_CODE = b.PAT_CODE and a.REG_TIMES = b.REG_TIMES 
+		                                and a.REG_NO *= c.REG_NO
+		                                and b.job = d.job_code
+		                                and a.reg_no *= e.reg_no
+		                                and a.reg_no *= g.reg_no
+		                                and g.comb_code =  c.comb_code
+		                                and c.comb_code = f.comb_code
+                                        and a.active = 'T'
+                                        and a.flag in ('P','R')
+		                                and (a.reg_date between ? and ?) ) tmp where REG_NO <> '' ";
+                List<IDataParameter> lstParm = new List<IDataParameter>();
+                if (parms != null)
+                {
+                    foreach (var po in parms)
+                    {
+                        switch (po.key)
+                        {
+                            case "regDate":
+                                IDataParameter[] parm = svc.CreateParm(4);
+                                parm[0].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[0]);
+                                parm[1].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[1]);
+                                parm[2].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[2]);
+                                parm[3].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[3]);
+                                break;
+                            case "lncCode":
+                                strSub += " and lnc_code = '" + po.value + "'";
+                                break;
+                            case "jobName":
+                                strSub += " and job = '" + po.value + "'";
+                                break;
+                            case "combCode":
+                                strSub += " and comb_Code = '" + po.value + "'";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                sql += strSub + Environment.NewLine + " order by comb_name,doct_name,job_name";
+                DataTable dt = svc.GetDataTable(sql, lstParm.ToArray());
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    string combName = string.Empty;
+                    string lastCombName = string.Empty;
+                    string doctName = string.Empty;
+                    string lastDoctName = string.Empty;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        EntityGzlRpt vo = new EntityGzlRpt();
+                        vo.tel = dr["tel"].ToString();
+                        vo.job_name = dr["job_name"].ToString();
+                        vo.reg_no = dr["reg_no"].ToString();
+                        vo.pat_name = dr["pat_name"].ToString();
+                        if (vo.pat_name.Contains("1") || vo.pat_name.Contains("-") || vo.pat_name.Contains("2") || vo.pat_name.Contains("4") || vo.pat_name.Contains("测试"))
+                            continue;
+                        vo.sex = dr["sex"].ToString();
+                        vo.age = dr["age"].ToString();
+                        vo.idcard = dr["idcard"].ToString();
+                        vo.reg_date = dr["reg_date"].ToString();
+                        vo.lnc_name = dr["lnc_name"].ToString();
+                        vo.job_name = dr["job_name"].ToString().Trim();
+                        vo.comb_code = dr["comb_code"].ToString().Trim();
+                        vo.je = Function.Dec(dr["price1"].ToString());
+                        combName = dr["comb_name"].ToString();
+                        vo.comb_name = combName;
+                        doctName= dr["doct_name"].ToString();
+                        vo.doct_name = doctName;
+
+                        if (data.Count == 0)
+                        {
+                            lastCombName = combName;
+                            lastDoctName = doctName;
+                        }
+                            
+                        if ( lastDoctName != doctName)
+                        {
+                            EntityGzlRpt vo2 = new EntityGzlRpt();
+                            vo2.job_name = "合计";
+                            vo2.reg_no = data.FindAll(r => r.comb_name == lastCombName && r.doct_name == lastDoctName).Count().ToString();
+                            vo2.je = data.FindAll(r => r.comb_name == lastCombName && r.doct_name == lastDoctName).Sum(r=>r.je);
+                            data.Add(vo2);
+                            lastCombName = combName;
+                            lastDoctName = doctName;
+                        }
+
+                        data.Add(vo);
+                    }
+
+                    EntityGzlRpt vo3 = new EntityGzlRpt();
+                    vo3.job_name = "合计";
+                    vo3.reg_no = data.FindAll(r => r.comb_name == lastCombName && r.doct_name == lastDoctName).Count().ToString();
+                    vo3.je = data.FindAll(r => r.comb_name == lastCombName && r.doct_name == lastDoctName).Sum(r => r.je);
+                    data.Add(vo3);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLog.OutPutException(ex);
+            }
+
+            return data;
+        }
+        #region
+
+        #endregion
 
         #region 项目分类
         public List<EntityXmfl> GetZdXmfl()
@@ -1823,7 +2002,6 @@ namespace RptFunc.Biz
         }
         #endregion
 
-
         #region 职业分类
         /// <summary>
         /// 
@@ -1887,7 +2065,7 @@ namespace RptFunc.Biz
             List<EntityZdzh> data = new List<EntityZdzh>();
             try
             {
-                string sql = "select * from zdzhxm where inst_flag = 'T'";
+                string sql = "select * from zdzhxm where inst_flag = 'T' order by a.cls_code,a.comb_name;";
 
                 SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
                 DataTable dt = svc.GetDataTable(sql);

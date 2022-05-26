@@ -42,18 +42,22 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.wNavbar1 = new NavbarWinTest.WNavbar();
-            this.wNavbarGroup1 = new NavbarWinTest.WNavbarGroup();
-            this.wNavbarGroupItem1 = new NavbarWinTest.WNavbarGroupItem();
-            this.wNavbarGroupItem2 = new NavbarWinTest.WNavbarGroupItem();
-            this.wNavbarGroupItem3 = new NavbarWinTest.WNavbarGroupItem();
-            this.wNavbarGroupItem4 = new NavbarWinTest.WNavbarGroupItem();
             this.wNavbarGroup2 = new NavbarWinTest.WNavbarGroup();
+            this.wNavbarGroup1 = new NavbarWinTest.WNavbarGroup();
+            this.wNavbarGroupItem4 = new NavbarWinTest.WNavbarGroupItem();
+            this.wNavbarGroupItem3 = new NavbarWinTest.WNavbarGroupItem();
+            this.wNavbarGroupItem2 = new NavbarWinTest.WNavbarGroupItem();
+            this.wNavbarGroupItem1 = new NavbarWinTest.WNavbarGroupItem();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.wNavbarGroup1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // defaultLookAndFeel
+            // 
+            this.defaultLookAndFeel.LookAndFeel.SkinName = "Office 2010 Blue";
             // 
             // marqueeProgressBarControl
             // 
@@ -135,9 +139,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 716);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 718);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1337, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1337, 21);
             // 
             // barDockControlLeft
             // 
@@ -145,7 +149,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 716);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 718);
             // 
             // barDockControlRight
             // 
@@ -153,7 +157,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1337, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 716);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 718);
             // 
             // xtraTabbedMdiManager
             // 
@@ -163,17 +167,31 @@
             // wNavbar1
             // 
             this.wNavbar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.wNavbar1.Caption = "WNavbar";
+            this.wNavbar1.Caption = "杏坛医院体检中心";
             this.wNavbar1.CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.wNavbar1.Dock = System.Windows.Forms.DockStyle.Left;
             this.wNavbar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
             this.wNavbar1.Items.AddRange(new NavbarWinTest.WNavbarGroup[] {
-            this.wNavbarGroup2,
-            this.wNavbarGroup1});
+            this.wNavbarGroup1,
+            this.wNavbarGroup2});
             this.wNavbar1.Location = new System.Drawing.Point(0, 48);
             this.wNavbar1.Name = "wNavbar1";
-            this.wNavbar1.Size = new System.Drawing.Size(210, 668);
+            this.wNavbar1.Size = new System.Drawing.Size(210, 670);
             this.wNavbar1.TabIndex = 6;
+            // 
+            // wNavbarGroup2
+            // 
+            this.wNavbarGroup2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.wNavbarGroup2.CaptionSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.wNavbarGroup2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.wNavbarGroup2.EnableExpandCollapseAnimation = true;
+            this.wNavbarGroup2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroup2.Location = new System.Drawing.Point(0, 0);
+            this.wNavbarGroup2.MouseOverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroup2.Name = "wNavbarGroup2";
+            this.wNavbarGroup2.Size = new System.Drawing.Size(210, 45);
+            this.wNavbarGroup2.TabIndex = 1;
+            this.wNavbarGroup2.Text = "wNavbarGroup2";
             // 
             // wNavbarGroup1
             // 
@@ -184,67 +202,16 @@
             this.wNavbarGroup1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
             this.wNavbarGroup1.IsExpand = true;
             this.wNavbarGroup1.Items.AddRange(new NavbarWinTest.WNavbarGroupItem[] {
-            this.wNavbarGroupItem4,
-            this.wNavbarGroupItem3,
+            this.wNavbarGroupItem1,
             this.wNavbarGroupItem2,
-            this.wNavbarGroupItem1});
-            this.wNavbarGroup1.Location = new System.Drawing.Point(0, 0);
+            this.wNavbarGroupItem3,
+            this.wNavbarGroupItem4});
+            this.wNavbarGroup1.Location = new System.Drawing.Point(0, 45);
             this.wNavbarGroup1.MouseOverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
             this.wNavbarGroup1.Name = "wNavbarGroup1";
             this.wNavbarGroup1.Size = new System.Drawing.Size(210, 207);
             this.wNavbarGroup1.TabIndex = 1;
             this.wNavbarGroup1.Text = "wNavbarGroup1";
-            // 
-            // wNavbarGroupItem1
-            // 
-            this.wNavbarGroupItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.wNavbarGroupItem1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wNavbarGroupItem1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.wNavbarGroupItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem1.Image = null;
-            this.wNavbarGroupItem1.Location = new System.Drawing.Point(0, 46);
-            this.wNavbarGroupItem1.Name = "wNavbarGroupItem1";
-            this.wNavbarGroupItem1.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
-            this.wNavbarGroupItem1.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
-            this.wNavbarGroupItem1.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem1.SelectedImage = null;
-            this.wNavbarGroupItem1.Size = new System.Drawing.Size(210, 40);
-            this.wNavbarGroupItem1.TabIndex = 0;
-            this.wNavbarGroupItem1.Text = "wNavbarGroupItem1";
-            // 
-            // wNavbarGroupItem2
-            // 
-            this.wNavbarGroupItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.wNavbarGroupItem2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wNavbarGroupItem2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.wNavbarGroupItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem2.Image = null;
-            this.wNavbarGroupItem2.Location = new System.Drawing.Point(0, 86);
-            this.wNavbarGroupItem2.Name = "wNavbarGroupItem2";
-            this.wNavbarGroupItem2.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
-            this.wNavbarGroupItem2.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
-            this.wNavbarGroupItem2.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem2.SelectedImage = null;
-            this.wNavbarGroupItem2.Size = new System.Drawing.Size(210, 40);
-            this.wNavbarGroupItem2.TabIndex = 1;
-            this.wNavbarGroupItem2.Text = "wNavbarGroupItem2";
-            // 
-            // wNavbarGroupItem3
-            // 
-            this.wNavbarGroupItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.wNavbarGroupItem3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wNavbarGroupItem3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.wNavbarGroupItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem3.Image = null;
-            this.wNavbarGroupItem3.Location = new System.Drawing.Point(0, 126);
-            this.wNavbarGroupItem3.Name = "wNavbarGroupItem3";
-            this.wNavbarGroupItem3.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
-            this.wNavbarGroupItem3.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
-            this.wNavbarGroupItem3.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroupItem3.SelectedImage = null;
-            this.wNavbarGroupItem3.Size = new System.Drawing.Size(210, 40);
-            this.wNavbarGroupItem3.TabIndex = 2;
-            this.wNavbarGroupItem3.Text = "wNavbarGroupItem3";
             // 
             // wNavbarGroupItem4
             // 
@@ -253,7 +220,7 @@
             this.wNavbarGroupItem4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
             this.wNavbarGroupItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
             this.wNavbarGroupItem4.Image = null;
-            this.wNavbarGroupItem4.Location = new System.Drawing.Point(0, 166);
+            this.wNavbarGroupItem4.Location = new System.Drawing.Point(0, 46);
             this.wNavbarGroupItem4.Name = "wNavbarGroupItem4";
             this.wNavbarGroupItem4.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
             this.wNavbarGroupItem4.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
@@ -263,19 +230,56 @@
             this.wNavbarGroupItem4.TabIndex = 3;
             this.wNavbarGroupItem4.Text = "wNavbarGroupItem4";
             // 
-            // wNavbarGroup2
+            // wNavbarGroupItem3
             // 
-            this.wNavbarGroup2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.wNavbarGroup2.CaptionSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
-            this.wNavbarGroup2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wNavbarGroup2.EnableExpandCollapseAnimation = true;
-            this.wNavbarGroup2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroup2.Location = new System.Drawing.Point(0, 207);
-            this.wNavbarGroup2.MouseOverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
-            this.wNavbarGroup2.Name = "wNavbarGroup2";
-            this.wNavbarGroup2.Size = new System.Drawing.Size(210, 45);
-            this.wNavbarGroup2.TabIndex = 1;
-            this.wNavbarGroup2.Text = "wNavbarGroup2";
+            this.wNavbarGroupItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.wNavbarGroupItem3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.wNavbarGroupItem3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.wNavbarGroupItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem3.Image = null;
+            this.wNavbarGroupItem3.Location = new System.Drawing.Point(0, 86);
+            this.wNavbarGroupItem3.Name = "wNavbarGroupItem3";
+            this.wNavbarGroupItem3.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
+            this.wNavbarGroupItem3.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
+            this.wNavbarGroupItem3.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem3.SelectedImage = null;
+            this.wNavbarGroupItem3.Size = new System.Drawing.Size(210, 40);
+            this.wNavbarGroupItem3.TabIndex = 2;
+            this.wNavbarGroupItem3.Text = "wNavbarGroupItem3";
+            // 
+            // wNavbarGroupItem2
+            // 
+            this.wNavbarGroupItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.wNavbarGroupItem2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.wNavbarGroupItem2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.wNavbarGroupItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem2.Image = null;
+            this.wNavbarGroupItem2.Location = new System.Drawing.Point(0, 126);
+            this.wNavbarGroupItem2.Name = "wNavbarGroupItem2";
+            this.wNavbarGroupItem2.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
+            this.wNavbarGroupItem2.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
+            this.wNavbarGroupItem2.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem2.SelectedImage = null;
+            this.wNavbarGroupItem2.Size = new System.Drawing.Size(210, 40);
+            this.wNavbarGroupItem2.TabIndex = 1;
+            this.wNavbarGroupItem2.Text = "wNavbarGroupItem2";
+            // 
+            // wNavbarGroupItem1
+            // 
+            this.wNavbarGroupItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.wNavbarGroupItem1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.wNavbarGroupItem1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.wNavbarGroupItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem1.Image = null;
+            this.wNavbarGroupItem1.Location = new System.Drawing.Point(0, 166);
+            this.wNavbarGroupItem1.Name = "wNavbarGroupItem1";
+            this.wNavbarGroupItem1.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(222)))));
+            this.wNavbarGroupItem1.SelectedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(167)))));
+            this.wNavbarGroupItem1.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(66)))), ((int)(((byte)(68)))));
+            this.wNavbarGroupItem1.SelectedImage = null;
+            this.wNavbarGroupItem1.Size = new System.Drawing.Size(210, 40);
+            this.wNavbarGroupItem1.TabIndex = 0;
+            this.wNavbarGroupItem1.Text = "wNavbarGroupItem1";
             // 
             // frmMain
             // 

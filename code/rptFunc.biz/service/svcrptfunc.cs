@@ -127,7 +127,7 @@ namespace RtpFunc.Svc
         }
         #endregion
 
-        #region GetTjywflRpts
+        #region 业务分类报表
         /// <summary>
         /// 
         /// </summary>
@@ -138,6 +138,21 @@ namespace RtpFunc.Svc
             using (BizRptFunc biz = new BizRptFunc())
             {
                 return biz.GetTjywflRpts(parms);
+            }
+        }
+        #endregion
+
+        #region 工作量统计报表
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityGzlRpt> GetGzlRpts(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetGzlRpts(parms);
             }
         }
         #endregion

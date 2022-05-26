@@ -155,7 +155,7 @@ namespace rtpFunc
                 ForeColor = frc,
                 MouseOverColor = gexc,
                 MouseOverForeColor = gcfc,
-                Text = "杏坛医院",
+                Text = "报表",
                 Image = Image.FromFile(string.Format(pathFormat, 3))
             };
 
@@ -340,7 +340,7 @@ namespace rtpFunc
                 ReflectionByAccVo2(gItem, "frmDLYY");
             }
 
-            if (gItem.Parent.Text == "杏坛医院")
+            if (gItem.Parent.Text == "报表")
             {
                 if(gItem.Text == "体检报表")
                     ReflectionByAccVo2(gItem, "frmXtyyRpt");

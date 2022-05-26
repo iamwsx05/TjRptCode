@@ -43,6 +43,7 @@ namespace RptFunc
         List<EntityDw> lstDw = null;
         List<EntityXmfl> lstXmfl = null;
         List<EntityZdzy> lstZy = null;
+        List<EntityZdzh> lstZdzh = null;
 
         #region Init
         void Init()
@@ -53,12 +54,14 @@ namespace RptFunc
             lstDw = new List<EntityDw>();
             lstXmfl = new List<EntityXmfl>();
             lstZy = new List<EntityZdzy>();
+            lstZdzh = new List<EntityZdzh>();
 
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
                 lstDw = proxy.Service.GetZdDw();
                 lstXmfl = proxy.Service.GetZdXmfl();
                 lstZy = proxy.Service.GetZdZy();
+                lstZdzh = proxy.Service.GetZdzh();
             }
 
             this.lueDw.Properties.PopupWidth = this.lueDw.Width;
@@ -116,6 +119,25 @@ namespace RptFunc
             {
                 this.lueYwfl.Properties.DataSource = lstZy.ToArray();
                 this.lueYwfl.Properties.SetSize();
+            }
+
+            this.lueComb.Properties.PopupWidth = this.lueComb.Width;
+            this.lueComb.Properties.PopupHeight = 400;
+            this.lueComb.Properties.ValueColumn = EntityZdzh.Columns.comb_code;
+            this.lueComb.Properties.DisplayColumn = EntityZdzh.Columns.comb_name;
+            this.lueComb.Properties.Essential = false;
+            this.lueComb.Properties.IsShowColumnHeaders = true;
+            this.lueComb.Properties.ColumnWidth.Add(EntityZdzh.Columns.comb_code, 70);
+            this.lueComb.Properties.ColumnWidth.Add(EntityZdzh.Columns.comb_name, this.lueDw.Width - 70);
+            this.lueComb.Properties.ColumnHeaders.Add(EntityZdzh.Columns.comb_code, "编码");
+            this.lueComb.Properties.ColumnHeaders.Add(EntityZdzh.Columns.comb_name, "名称");
+            this.lueComb.Properties.ShowColumn = EntityZdzh.Columns.comb_code + "|" + EntityZdzh.Columns.comb_name;
+            this.lueComb.Properties.IsUseShowColumn = true;
+            this.lueComb.Properties.FilterColumn = EntityZdzh.Columns.comb_code + "|" + EntityZdzh.Columns.comb_name;
+            if (lstZy != null)
+            {
+                this.lueComb.Properties.DataSource = lstZdzh.ToArray();
+                this.lueComb.Properties.SetSize();
             }
         }
         #endregion
@@ -458,6 +480,73 @@ namespace RptFunc
         }
 
         #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        internal void QueryGzlRpts()
+        {
+            List<EntityGzlRpt> data = new List<EntityGzlRpt>();
+            string lncName = this.lueDw.Text;
+            string lncCode = string.Empty;
+            string jobCodoe = string.Empty;
+            string jobName = this.lueYwfl.Text;
+            string patName = this.txtPatName.Text;
+            string regNo = this.txtRegNo.Text;
+            string combCode = string.Empty;
+            string combName = this.lueComb.Text;
+
+            if (!string.IsNullOrEmpty(lncName))
+            {
+                EntityDw dw = lstDw.Find(r => r.lnc_name == lncName);
+                if (dw != null)
+                    lncCode = dw.lnc_code;
+            }
+            if (!string.IsNullOrEmpty(jobName))
+            {
+                EntityZdzy zy = lstZy.Find(r => r.job_name == jobName);
+                if (zy != null)
+                    jobCodoe = zy.job_code;
+            }
+
+            if (!string.IsNullOrEmpty(combName))
+            {
+                EntityZdzh vo = lstZdzh.Find(r => r.comb_name == combName);
+                if (vo != null)
+                    combCode = vo.comb_code;
+            }
+
+            List<EntityParm> dicParm = new List<EntityParm>();
+            string beginTime = this.dteBegin.Text.Replace('-', '.');
+            string endTime = this.dteEnd.Text.Replace('-', '.');
+            if (beginTime != string.Empty && endTime != string.Empty)
+            {
+                dicParm.Add(Function.GetParm("regDate", beginTime + "|" + endTime));
+            }
+            if (!string.IsNullOrEmpty(lncCode))
+            {
+                dicParm.Add(Function.GetParm("lncCode", lncCode));
+            }
+            if (!string.IsNullOrEmpty(jobCodoe))
+            {
+                dicParm.Add(Function.GetParm("jobName", jobCodoe));
+            }
+            if (!string.IsNullOrEmpty(combCode))
+            {
+                dicParm.Add(Function.GetParm("combCode", combCode));
+            }
+            if (!string.IsNullOrEmpty(regNo))
+            {
+                dicParm.Add(Function.GetParm("regNo", regNo));
+            }
+            using (ProxyRptFunc proxy = new ProxyRptFunc())
+            {
+                this.gcGzlRpt.DataSource = proxy.Service.GetGzlRpts(dicParm);
+                this.gcGzlRpt.RefreshDataSource();
+            }
+        }
+        #region 工作量统计报表
+
+        #endregion
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -481,6 +570,10 @@ namespace RptFunc
             {
                 QueryTjywflRpts();
             }
+            else if (tabPane1.SelectedPageIndex == 5)
+            {
+                QueryGzlRpts();
+            }
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -501,6 +594,14 @@ namespace RptFunc
             {
                 uiHelper.ExportToXls(this.gvTjXmYcRpt, true);
             }
+            else if (tabPane1.SelectedPageIndex == 4)
+            {
+                uiHelper.ExportToXls(this.gvTjYwflRpt, true);
+            }
+            else if (tabPane1.SelectedPageIndex == 5)
+            {
+                uiHelper.ExportToXls(this.gvGzlRpt, true);
+            }
         }
 
         private void gvTjjdb_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
@@ -519,6 +620,15 @@ namespace RptFunc
                 e.Appearance.BackColor = System.Drawing.Color.Red;
             }
             gvTjYwflRpt.Invalidate();
+        }
+
+        private void gvGzlRpt_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (gvGzlRpt.GetRowCellValue(e.RowHandle, "reg_date") == null)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.Red;
+            }
+            gvGzlRpt.Invalidate();
         }
     }
 }

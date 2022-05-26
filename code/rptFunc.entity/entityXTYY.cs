@@ -917,10 +917,17 @@ namespace RptFunc.Xtyy
     }
 
 
-    public class EntityZdzh
+    public class EntityZdzh: BaseDataContract
     {
         public string comb_code { get; set; }
         public string comb_name { get; set; }
+
+        public static EnumCols Columns = new EnumCols();
+        public class EnumCols
+        {
+            public string comb_code = "comb_code";
+            public string comb_name = "comb_name";
+        }
     }
 
 

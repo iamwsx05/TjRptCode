@@ -64,6 +64,9 @@ namespace RtpFunc.Itf
         [OperationContract(Name = "GetTjywflRpts")]
         List<EntityTjywflRpt> GetTjywflRpts(List<EntityParm> parms);
 
+        [OperationContract(Name = "GetGzlRpts")]
+        List<EntityGzlRpt> GetGzlRpts(List<EntityParm> parms);
+
         [OperationContract(Name = "GetZdZy")]
         List<EntityZdzy> GetZdZy();
 
