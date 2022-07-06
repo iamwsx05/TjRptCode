@@ -1,7 +1,6 @@
 ﻿using Common.Controls;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
 using RptFunc.Entity;
 using RptFunc.Xtyy;
 using Spire.Xls;
@@ -22,9 +21,9 @@ using weCare.Core.Utils;
 
 namespace RptFunc
 {
-    public partial class frmXtyyRpt : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmFswyRpt : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmXtyyRpt()
+        public frmFswyRpt()
         {
             InitializeComponent();
             UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful");
@@ -236,7 +235,6 @@ namespace RptFunc
         #region 项目报表
         internal void QueryItemRpt()
         {
-            List<EntityParm> dicParm = new List<EntityParm>();
             List<EntityItemRpt> data = new List<EntityItemRpt>();
 
             string lncCode = string.Empty;
@@ -247,9 +245,8 @@ namespace RptFunc
                 if (dw != null)
                     lncCode = dw.lnc_code;
             }
-            int index = this.chkCflg.SelectedIndex == -1 ? 1: this.chkCflg.SelectedIndex;
-            dicParm.Add(Function.GetParm("chkCflg", index.ToString()));
 
+            List<EntityParm> dicParm = new List<EntityParm>();
             string beginTime = this.dteBegin.Text.Replace('-', '.') ;
             string endTime = this.dteEnd.Text.Replace('-', '.') ;
             if (beginTime != string.Empty && endTime != string.Empty)
@@ -260,7 +257,6 @@ namespace RptFunc
             {
                 dicParm.Add(Function.GetParm("lncCode", lncCode));
             }
-
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
                 this.gcItemRpt.DataSource = proxy.Service.GetItemRpt(dicParm); ;
@@ -316,7 +312,7 @@ namespace RptFunc
             }
             using (ProxyRptFunc proxy = new ProxyRptFunc())
             {
-                this.gcTjjdb.DataSource = proxy.Service.GetTjjdb(dicParm) ;
+                this.gcTjjdb.DataSource = proxy.Service.GetTjjdb2(dicParm) ;
                 this.gcTjjdb.RefreshDataSource();
             }
 
@@ -633,24 +629,6 @@ namespace RptFunc
                 e.Appearance.BackColor = System.Drawing.Color.Red;
             }
             gvGzlRpt.Invalidate();
-        }
-        private void chkCflg_ItemChecking(object sender, DevExpress.XtraEditors.Controls.ItemCheckingEventArgs e)
-        {
-            SingleSelectCheckedListBoxControls(chkCflg, e.Index);
-        }
-
-        public void SingleSelectCheckedListBoxControls(CheckedListBoxControl chkControl, int index)
-        {
-            if (chkControl.CheckedItems.Count > 0)
-            {
-                for (int i = 0; i < chkControl.Items.Count; i++)
-                {
-                    if (i != index)
-                    {
-                        chkControl.SetItemCheckState(i, System.Windows.Forms.CheckState.Unchecked);
-                    }
-                }
-            }
         }
     }
 }

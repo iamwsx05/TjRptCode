@@ -893,9 +893,10 @@ namespace Common.Controls
             {
                 try
                 {
-                    gv.OptionsPrint.AutoWidth = false;
+                    //gv.OptionsPrint.AutoWidth = false;
                     gv.OptionsPrint.PrintHeader = isShowHeader;
                     DevExpress.XtraGrid.Views.Base.BaseView ExportView = gv;
+                    
                     ExportView.ExportToXls(sp.FileName);
                 }
                 catch (Exception ex)
@@ -905,6 +906,8 @@ namespace Common.Controls
             }
         }
         #endregion
+
+
 
         #region Print
         /// <summary>

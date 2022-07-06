@@ -36,5 +36,7 @@ namespace weCare.Core.Entity
         /// IP
         /// </summary>
         public static string MidderServerIP = string.Empty;
+
+        public static int Hospital { get; set; }
     }
 }

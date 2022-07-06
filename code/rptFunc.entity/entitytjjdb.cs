@@ -23,6 +23,10 @@ namespace RptFunc.Entity
         [DataMember]
         public string sex { get; set; }
         [DataMember]
+        public string id_card { get; set; }
+        [DataMember]
+        public string tel { get; set; }
+        [DataMember]
         public string comb_code { get; set; }
         [DataMember]
         public string comb_name { get; set; }

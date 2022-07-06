@@ -1,6 +1,6 @@
 ﻿namespace RptFunc
 {
-    partial class frmXtyyRpt
+    partial class frmFswyRpt
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXtyyRpt));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFswyRpt));
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Utils.SimpleContextButton simpleContextButton1 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton2 = new DevExpress.Utils.SimpleContextButton();
-            DevExpress.Utils.SimpleContextButton simpleContextButton3 = new DevExpress.Utils.SimpleContextButton();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.imageCollection3 = new DevExpress.Utils.ImageCollection(this.components);
@@ -188,8 +185,6 @@
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.chkCflg = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gcTjjdb = new DevExpress.XtraGrid.GridControl();
             this.gvTjjdb = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -198,8 +193,6 @@
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -237,15 +230,16 @@
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.gcTjXmYcRpt = new DevExpress.XtraGrid.GridControl();
-            this.gvTjXmYcRpt = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.bandedGridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bandedGridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gvTjXmYcRpt = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit15 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.repositoryItemMemoEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.repositoryItemMemoEdit12 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
@@ -337,9 +331,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkCflg)).BeginInit();
             this.tabNavigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcTjjdb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTjjdb)).BeginInit();
@@ -2209,21 +2200,20 @@
             // 
             this.tabNavigationPage1.Caption = "体检项目收入明细表";
             this.tabNavigationPage1.Controls.Add(this.gcItemRpt);
-            this.tabNavigationPage1.Controls.Add(this.panelControl6);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(1588, 601);
             // 
             // gcItemRpt
             // 
             this.gcItemRpt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcItemRpt.Location = new System.Drawing.Point(0, 34);
+            this.gcItemRpt.Location = new System.Drawing.Point(0, 0);
             this.gcItemRpt.MainView = this.gvItemRpt;
             this.gcItemRpt.Name = "gcItemRpt";
             this.gcItemRpt.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2});
-            this.gcItemRpt.Size = new System.Drawing.Size(1588, 567);
-            this.gcItemRpt.TabIndex = 10;
+            this.gcItemRpt.Size = new System.Drawing.Size(1588, 601);
+            this.gcItemRpt.TabIndex = 8;
             this.gcItemRpt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvItemRpt,
             this.gridView5});
@@ -2526,40 +2516,6 @@
             this.gridView5.GridControl = this.gcItemRpt;
             this.gridView5.Name = "gridView5";
             // 
-            // panelControl6
-            // 
-            this.panelControl6.Controls.Add(this.chkCflg);
-            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl6.Location = new System.Drawing.Point(0, 0);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(1588, 34);
-            this.panelControl6.TabIndex = 9;
-            // 
-            // chkCflg
-            // 
-            this.chkCflg.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCflg.Appearance.Options.UseFont = true;
-            simpleContextButton1.Id = new System.Guid("c2ab9d07-bf3e-4f40-a96d-0a64753a45c6");
-            simpleContextButton1.Name = "SimpleContextButton";
-            simpleContextButton2.Id = new System.Guid("ebac75c4-bdd4-4626-a6fd-24f881c97f4f");
-            simpleContextButton2.Name = "SimpleContextButton";
-            simpleContextButton3.Id = new System.Guid("1b3bc055-9b0f-473b-9aa2-89373c66c1bb");
-            simpleContextButton3.Name = "SimpleContextButton";
-            this.chkCflg.ContextButtons.Add(simpleContextButton1);
-            this.chkCflg.ContextButtons.Add(simpleContextButton2);
-            this.chkCflg.ContextButtons.Add(simpleContextButton3);
-            this.chkCflg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chkCflg.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "全部"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "团检", System.Windows.Forms.CheckState.Checked),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "个检")});
-            this.chkCflg.Location = new System.Drawing.Point(5, 6);
-            this.chkCflg.MultiColumn = true;
-            this.chkCflg.Name = "chkCflg";
-            this.chkCflg.Size = new System.Drawing.Size(190, 22);
-            this.chkCflg.TabIndex = 0;
-            this.chkCflg.ItemChecking += new DevExpress.XtraEditors.Controls.ItemCheckingEventHandler(this.chkCflg_ItemChecking);
-            // 
             // tabNavigationPage3
             // 
             this.tabNavigationPage3.Caption = "人员进度查询";
@@ -2596,8 +2552,6 @@
             this.gridColumn19,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn12,
-            this.gridColumn28,
             this.gridColumn32,
             this.gridColumn15,
             this.gridColumn16,
@@ -2720,44 +2674,6 @@
             this.gridColumn14.VisibleIndex = 4;
             this.gridColumn14.Width = 27;
             // 
-            // gridColumn12
-            // 
-            this.gridColumn12.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn12.AppearanceCell.Options.UseFont = true;
-            this.gridColumn12.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn12.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn12.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn12.Caption = "身份证";
-            this.gridColumn12.FieldName = "id_card";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.OptionsColumn.AllowEdit = false;
-            this.gridColumn12.OptionsColumn.AllowFocus = false;
-            this.gridColumn12.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn12.OptionsFilter.AllowFilter = false;
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
-            this.gridColumn12.Width = 186;
-            // 
-            // gridColumn28
-            // 
-            this.gridColumn28.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn28.AppearanceCell.Options.UseFont = true;
-            this.gridColumn28.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn28.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn28.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn28.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn28.Caption = "电话";
-            this.gridColumn28.FieldName = "tel";
-            this.gridColumn28.Name = "gridColumn28";
-            this.gridColumn28.OptionsColumn.AllowEdit = false;
-            this.gridColumn28.OptionsColumn.AllowFocus = false;
-            this.gridColumn28.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn28.OptionsFilter.AllowFilter = false;
-            this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 6;
-            this.gridColumn28.Width = 138;
-            // 
             // gridColumn32
             // 
             this.gridColumn32.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2778,8 +2694,8 @@
             this.gridColumn32.OptionsFilter.AllowFilter = false;
             this.gridColumn32.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 7;
-            this.gridColumn32.Width = 102;
+            this.gridColumn32.VisibleIndex = 5;
+            this.gridColumn32.Width = 104;
             // 
             // gridColumn15
             // 
@@ -2803,8 +2719,8 @@
             this.gridColumn15.OptionsFilter.AllowFilter = false;
             this.gridColumn15.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 8;
-            this.gridColumn15.Width = 44;
+            this.gridColumn15.VisibleIndex = 6;
+            this.gridColumn15.Width = 49;
             // 
             // gridColumn16
             // 
@@ -2828,8 +2744,8 @@
             this.gridColumn16.OptionsFilter.AllowFilter = false;
             this.gridColumn16.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 9;
-            this.gridColumn16.Width = 39;
+            this.gridColumn16.VisibleIndex = 7;
+            this.gridColumn16.Width = 41;
             // 
             // gridColumn18
             // 
@@ -2852,8 +2768,8 @@
             this.gridColumn18.OptionsFilter.AllowFilter = false;
             this.gridColumn18.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 10;
-            this.gridColumn18.Width = 347;
+            this.gridColumn18.VisibleIndex = 8;
+            this.gridColumn18.Width = 473;
             // 
             // repositoryItemMemoEdit6
             // 
@@ -2879,8 +2795,8 @@
             this.gridColumn21.OptionsFilter.AllowFilter = false;
             this.gridColumn21.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 11;
-            this.gridColumn21.Width = 87;
+            this.gridColumn21.VisibleIndex = 9;
+            this.gridColumn21.Width = 63;
             // 
             // repositoryItemMemoEdit3
             // 
@@ -2963,7 +2879,7 @@
             this.tabNavigationPage4.Caption = "体检单位挂账收入明细";
             this.tabNavigationPage4.Controls.Add(this.gcDwgz);
             this.tabNavigationPage4.Name = "tabNavigationPage4";
-            this.tabNavigationPage4.Size = new System.Drawing.Size(1588, 601);
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1606, 647);
             // 
             // gcDwgz
             // 
@@ -2976,7 +2892,7 @@
             this.repositoryItemMemoEdit10,
             this.repositoryItemMemoEdit7,
             this.repositoryItemMemoEdit8});
-            this.gcDwgz.Size = new System.Drawing.Size(1588, 601);
+            this.gcDwgz.Size = new System.Drawing.Size(1606, 647);
             this.gcDwgz.TabIndex = 7;
             this.gcDwgz.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDwgz,
@@ -3236,9 +3152,13 @@
             // 
             // gvTjXmYcRpt
             // 
+            this.gvTjXmYcRpt.Appearance.BandPanel.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.gvTjXmYcRpt.Appearance.BandPanel.Options.UseFont = true;
             this.gvTjXmYcRpt.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10.5F);
             this.gvTjXmYcRpt.Appearance.ViewCaption.Options.UseFont = true;
-            this.gvTjXmYcRpt.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvTjXmYcRpt.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand4});
+            this.gvTjXmYcRpt.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.bandedGridColumn2,
             this.bandedGridColumn3,
             this.bandedGridColumn4,
@@ -3250,9 +3170,27 @@
             this.gvTjXmYcRpt.GridControl = this.gcTjXmYcRpt;
             this.gvTjXmYcRpt.Name = "gvTjXmYcRpt";
             this.gvTjXmYcRpt.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            this.gvTjXmYcRpt.OptionsView.RowAutoHeight = true;
             this.gvTjXmYcRpt.OptionsView.ShowGroupPanel = false;
             this.gvTjXmYcRpt.ViewCaption = "体检单位挂账收入明细";
+            // 
+            // gridBand4
+            // 
+            this.gridBand4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.gridBand4.AppearanceHeader.Options.UseFont = true;
+            this.gridBand4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand4.Caption = "体检项目异常统计报表";
+            this.gridBand4.Columns.Add(this.bandedGridColumn2);
+            this.gridBand4.Columns.Add(this.bandedGridColumn3);
+            this.gridBand4.Columns.Add(this.bandedGridColumn4);
+            this.gridBand4.Columns.Add(this.bandedGridColumn5);
+            this.gridBand4.Columns.Add(this.bandedGridColumn6);
+            this.gridBand4.Columns.Add(this.bandedGridColumn7);
+            this.gridBand4.Columns.Add(this.bandedGridColumn8);
+            this.gridBand4.Columns.Add(this.bandedGridColumn9);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.VisibleIndex = 0;
+            this.gridBand4.Width = 1563;
             // 
             // bandedGridColumn2
             // 
@@ -3270,7 +3208,6 @@
             this.bandedGridColumn2.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn2.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.VisibleIndex = 0;
             this.bandedGridColumn2.Width = 313;
             // 
             // bandedGridColumn3
@@ -3287,7 +3224,6 @@
             this.bandedGridColumn3.FieldName = "reg_no";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.VisibleIndex = 1;
             this.bandedGridColumn3.Width = 140;
             // 
             // bandedGridColumn4
@@ -3310,7 +3246,6 @@
             this.bandedGridColumn4.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn4.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.VisibleIndex = 2;
             this.bandedGridColumn4.Width = 76;
             // 
             // bandedGridColumn5
@@ -3334,7 +3269,6 @@
             this.bandedGridColumn5.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn5.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn5.Visible = true;
-            this.bandedGridColumn5.VisibleIndex = 3;
             this.bandedGridColumn5.Width = 50;
             // 
             // bandedGridColumn6
@@ -3356,7 +3290,6 @@
             this.bandedGridColumn6.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn6.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn6.Visible = true;
-            this.bandedGridColumn6.VisibleIndex = 4;
             this.bandedGridColumn6.Width = 136;
             // 
             // bandedGridColumn7
@@ -3378,16 +3311,15 @@
             this.bandedGridColumn7.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn7.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn7.Visible = true;
-            this.bandedGridColumn7.VisibleIndex = 5;
             this.bandedGridColumn7.Width = 179;
             // 
             // bandedGridColumn8
             // 
-            this.bandedGridColumn8.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.bandedGridColumn8.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bandedGridColumn8.AppearanceCell.Options.UseFont = true;
             this.bandedGridColumn8.AppearanceCell.Options.UseTextOptions = true;
             this.bandedGridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandedGridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.bandedGridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bandedGridColumn8.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -3399,14 +3331,13 @@
             this.bandedGridColumn8.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn8.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn8.Visible = true;
-            this.bandedGridColumn8.VisibleIndex = 6;
             this.bandedGridColumn8.Width = 232;
             // 
             // bandedGridColumn9
             // 
-            this.bandedGridColumn9.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.bandedGridColumn9.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bandedGridColumn9.AppearanceCell.Options.UseFont = true;
-            this.bandedGridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F);
+            this.bandedGridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bandedGridColumn9.AppearanceHeader.Options.UseFont = true;
             this.bandedGridColumn9.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -3419,7 +3350,6 @@
             this.bandedGridColumn9.OptionsFilter.AllowAutoFilter = false;
             this.bandedGridColumn9.OptionsFilter.AllowFilter = false;
             this.bandedGridColumn9.Visible = true;
-            this.bandedGridColumn9.VisibleIndex = 7;
             this.bandedGridColumn9.Width = 437;
             // 
             // repositoryItemMemoEdit15
@@ -3446,13 +3376,11 @@
             // 
             this.gridView7.GridControl = this.gcTjXmYcRpt;
             this.gridView7.Name = "gridView7";
-            this.gridView7.OptionsView.RowAutoHeight = true;
             // 
             // gridView8
             // 
             this.gridView8.GridControl = this.gcTjXmYcRpt;
             this.gridView8.Name = "gridView8";
-            this.gridView8.OptionsView.RowAutoHeight = true;
             // 
             // bandedGridView2
             // 
@@ -3460,7 +3388,6 @@
             this.gridBand5});
             this.bandedGridView2.GridControl = this.gcTjXmYcRpt;
             this.bandedGridView2.Name = "bandedGridView2";
-            this.bandedGridView2.OptionsView.RowAutoHeight = true;
             // 
             // gridBand5
             // 
@@ -4313,7 +4240,7 @@
             this.popupMenu1.Name = "popupMenu1";
             this.popupMenu1.Ribbon = this.ribbonControl;
             // 
-            // frmXtyyRpt
+            // frmFswyRpt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -4321,7 +4248,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ribbonControl);
-            this.Name = "frmXtyyRpt";
+            this.Name = "frmFswyRpt";
             this.Ribbon = this.ribbonControl;
             this.Text = "Form Software";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -4350,9 +4277,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkCflg)).EndInit();
             this.tabNavigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcTjjdb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTjjdb)).EndInit();
@@ -4557,6 +4481,10 @@
         private DevExpress.XtraBars.Navigation.TabPane tabPane1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage1;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage3;
+        private DevExpress.XtraGrid.GridControl gcItemRpt;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.DateEdit dteEnd;
         private DevExpress.XtraEditors.SimpleButton btnQuery;
@@ -4569,6 +4497,19 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit9;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit10;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvItemRpt;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn7;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn9;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn11;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gvDwgz;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn22;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn23;
@@ -4583,6 +4524,16 @@
         private Common.Controls.LookUpEdit lueDw;
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabNavigationPage2;
         private DevExpress.XtraGrid.GridControl gcTjXmYcRpt;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gvTjXmYcRpt;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn7;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn8;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn9;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit15;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit11;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit12;
@@ -4676,36 +4627,6 @@
         private Common.Controls.LookUpEdit lueComb;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit repositoryItemMemoExEdit1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
-        private DevExpress.XtraGrid.GridControl gcItemRpt;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvItemRpt;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn3;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn7;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn9;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn11;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraEditors.CheckedListBoxControl chkCflg;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvTjXmYcRpt;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn bandedGridColumn9;
     }
 }
 

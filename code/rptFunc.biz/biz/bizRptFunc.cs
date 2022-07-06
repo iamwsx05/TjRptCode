@@ -22,7 +22,7 @@ namespace RptFunc.Biz
             string lncName = string.Empty;
             string strSub = string.Empty;
             SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
-            string sql = @"select * from (select b.reg_date,b.lnc_code, b.reg_no ,a.pat_name, 
+            string sql = @"select * from (select b.reg_date,b.lnc_code, b.reg_no ,a.pat_name , d.pay_type,
                                      e.comb_code,e.cls_code,
                                      e.comb_name,
                                       deptName= (select dept_name from zdKs where dept_code = e.dept_code),
@@ -37,7 +37,7 @@ namespace RptFunc.Biz
                                            and  b.active = 'T'
                                             and b.lnc_code <> '0000' 
                                      union all 
-                                     select  b.reg_date, b.lnc_code, b.reg_no,a.pat_name, 
+                                     select  b.reg_date, b.lnc_code, b.reg_no,a.pat_name,  d.pay_type,
                                      e.comb_code,e.cls_code,
                                      e.comb_name,
                                      deptName= (select dept_name from zdKs where dept_code = e.dept_code),
@@ -50,7 +50,7 @@ namespace RptFunc.Biz
                                            b.reg_no = d.reg_no and           
                                            d.comb_code = e.comb_code 
                                             and b.lnc_code <> '0000' 
-                                           and  b.active = 'T')  tmp where reg_date between ? and ?  and reg_no not in('220327820003','220327820002','220325820003')";
+                                           and  b.active = 'T')  tmp where reg_date between ? and ?  ";
             List<IDataParameter> lstParm = new List<IDataParameter>();
             if (parms != null)
             {
@@ -68,6 +68,13 @@ namespace RptFunc.Biz
                             break;
                         case "lncCode":
                             strSub += " and lnc_code = '" + po.value + "'";
+                            break;
+                        case "chkCflg":
+                            int index = Function.Int(po.value);
+                            if(index == 1 || index == 2)
+                            {
+                                strSub += " and  pay_type = '" + po.value + "'";
+                            }
                             break;
                         default:
                             break;
@@ -139,40 +146,44 @@ namespace RptFunc.Biz
             string sql = @"select * from (select b.reg_date,b.lnc_code, a.pat_name,
 									lnc_name = (select lnc_name from zddw where lnc_code = b.lnc_code),
 									b.reg_no, 
-                                     e.comb_code,e.cls_code,
-                                     e.comb_name,
-                                      deptName= (select dept_name from zdKs where dept_code = e.dept_code),
-                                      e.basic_cls,
-                                      fyfl  = (select cls_name from zdJcfl where cls_code = e.basic_cls),
-                                     d.price1, 
-                                     d.rate,
-                                     d.rb_total
-                                     from ywBrxx a,ywDjxx b,ywTjxmzx d,zdZhxm e        
-                                     where a.pat_code = b.pat_code and             
+                                    e.comb_code,e.cls_code,
+                                    e.comb_name,
+                                    deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                    d.pay_type,
+                                    e.basic_cls,
+                                    fyfl  = (select cls_name from zdJcfl where cls_code = e.basic_cls),
+                                    d.price1, 
+                                    d.rate,
+                                    d.rb_total
+                                    from ywBrxx a,ywDjxx b,ywTjxmzx d,zdZhxm e        
+                                    where a.pat_code = b.pat_code and             
                                            a.reg_times = b.reg_times and        
                                            b.reg_no = d.reg_no and           
                                            d.comb_code = e.comb_code            
                                            and  b.active = 'T'
                                            and b.lnc_code <> '0000' 
-                                     union all 
-                                     select  b.reg_date, b.lnc_code, a.pat_name,
-                                     lnc_name = (select lnc_name from zddw where lnc_code = b.lnc_code),
-                                     b.reg_no, 
-                                     e.comb_code,e.cls_code,
-                                     e.comb_name,
-                                     deptName= (select dept_name from zdKs where dept_code = e.dept_code),
-                                     e.basic_cls,
-                                     fyfl  = (select cls_name from zdJcfl where cls_code = e.basic_cls),
-                                     d.price1, 
-                                     d.rate,
-                                     d.rb_total     
-                                     from ywBrxx a,ywDjxx b,ywTjxm d,zdZhxm e           
-                                     where a.pat_code = b.pat_code and             
+                                    union all 
+                                    select  b.reg_date, b.lnc_code, a.pat_name,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = b.lnc_code),
+                                    b.reg_no, 
+                                    e.comb_code,e.cls_code,
+                                    e.comb_name,
+                                    deptName= (select dept_name from zdKs where dept_code = e.dept_code),
+                                    d.pay_type, 
+                                    e.basic_cls,
+                                    fyfl  = (select cls_name from zdJcfl where cls_code = e.basic_cls),
+                                    d.price1, 
+                                    d.rate,
+                                    d.rb_total     
+                                    from ywBrxx a,ywDjxx b,ywTjxm d,zdZhxm e           
+                                    where a.pat_code = b.pat_code and             
                                            a.reg_times = b.reg_times and        
                                            b.reg_no = d.reg_no and           
                                            d.comb_code = e.comb_code
                                             and b.lnc_code <> '0000' 
-                                           and  b.active = 'T')  tmp where reg_date between ? and ? and reg_no not in('220327820003','220327820002','220325820003') ";
+                                           and  b.active = 'T')  tmp 
+                                    where reg_date between ? and ? 
+                                            and reg_no not in('220327820003','220327820002','220325820003') ";
             #endregion
 
             List<IDataParameter> lstParm = new List<IDataParameter>();
@@ -203,6 +214,7 @@ namespace RptFunc.Biz
             string regNo = string.Empty;
             string lnc_code = string.Empty;
             string lnc_name = string.Empty;
+            string payType = string.Empty;
             decimal dj = 0;
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -210,7 +222,10 @@ namespace RptFunc.Biz
                 {
                     EntityTjdwgzfl vo = new EntityTjdwgzfl();
                     string pat_name = dr["pat_name"].ToString();
+                    payType = dr["pay_type"].ToString().Trim();
                     if (pat_name.Contains("1") || pat_name.Contains("-") || pat_name.Contains("2") || pat_name.Contains("4") || pat_name.Contains("测试"))
+                        continue;
+                    if (payType == "2")
                         continue;
                     vo.zdrq = DateTime.Now.ToString("yyyy-MM-dd");
                     vo.pzbh = "";
@@ -251,7 +266,8 @@ namespace RptFunc.Biz
                     EntityDwRs voR = new EntityDwRs();
                     voR.lnc_code = vo.lnc_code;
                     voR.reg_no = dr["reg_no"].ToString();
-                    if (!dataRs.Any(r => r.reg_no == voR.reg_no ))
+                    voR.fyfl = dr["fyfl"].ToString();
+                    if (!dataRs.Any(r => r.reg_no == voR.reg_no  && r.fyfl == voR.fyfl))
                     {
                         dataRs.Add(voR);
                     }
@@ -267,7 +283,7 @@ namespace RptFunc.Biz
                         vo.hj = dicHj[vo.lnc_code];
                     }
 
-                    vo.rs = dataRs.FindAll(r => r.lnc_code == vo.lnc_code).Count;
+                    vo.rs = dataRs.FindAll(r => r.lnc_code == vo.lnc_code && r.fyfl == vo.fyfl).Count;
                 }
             }
 
@@ -514,16 +530,17 @@ namespace RptFunc.Biz
             string lncName = string.Empty;
             string strSub = string.Empty;
             string regNo = string.Empty;
-            string itemCode = string.Empty;
             Dictionary<string, string> dicComb = new Dictionary<string, string>();
             try
             {
                 SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+
                 #region sql
-                string sql = @"select * from( select  a.active,a.flag,a.lnc_code,
-                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                /* string sql = @"select * from( select  a.active,a.flag,a.lnc_code,
+                lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
                                     a.reg_date,
-                                    a.reg_no,b.pat_name,a.his_patid as pat_code,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
                                     case b.sex
                                     when 1 then '男'
                                     else '女' 
@@ -545,12 +562,13 @@ namespace RptFunc.Biz
                                     on c.rec_no = d.rec_no
                                     left join ywCf e
                                     on a.reg_no  = e.reg_no
-                                    where a.reg_date between ? and ?
+                                    where a.reg_date between ? and ? and a.flag in ('P','R')
                                     union all
                                     select  a.active,a.flag,a.lnc_code,
                                     lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
                                     a.reg_date,
-                                    a.reg_no,b.pat_name,a.his_patid as pat_code,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
                                     case b.sex
                                     when 1 then '男'
                                     else '女' 
@@ -574,12 +592,13 @@ namespace RptFunc.Biz
                                     on c.rec_no = d.rec_no
                                     left join ywCf e
                                     on a.reg_no  = e.reg_no
-                                    where a.reg_date between ? and ? 
+                                    where a.reg_date between ? and ?  
                                     union all
                                     select  a.active,a.flag,a.lnc_code,
                                     lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
                                     a.reg_date,
-                                    a.reg_no,b.pat_name,a.his_patid as pat_code,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
                                     case b.sex
                                     when 1 then '男'
                                     else '女' 
@@ -597,10 +616,78 @@ namespace RptFunc.Biz
                                     on a.reg_times = b.reg_times and a.pat_code = b.pat_code
                                     left join ywTjxmzx c
                                     on a.reg_no = c.reg_no
-                                    where a.reg_date between ? and ? and (a.active = 'F' or a.active is null) ) tmp where cls_code not in ('90') ";
+                                    where a.reg_date between ? and ? and (a.active = 'F' or a.active is null) ) 
+                                        tmp where cls_code not in ('90') ";*/
+                string sql = @"select * from( select  a.active,a.flag,a.lnc_code,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                                    a.reg_date,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
+                                    case b.sex
+                                    when 1 then '男'
+                                    else '女' 
+                                    end sex,
+                                    b.idcard,
+                                    b.tel,
+                                    c.comb_code,
+                                    comb_name = (select comb_name from zdZhxm where comb_code = c.comb_code),
+                                    cls_code = (select cls_code from zdzhxm where comb_code = c.comb_code),
+                                    c.doct_name,
+                                    a.f_flag as  chrg_flag
+                                    from ywDjxx a 
+                                    left join ywBrxx b
+                                    on a.reg_times = b.reg_times and a.pat_code = b.pat_code
+                                    inner join ywTjbg c
+                                    on a.reg_no = c.reg_no
+                                    where a.reg_date between ? and ? and a.flag in ('P','R')
+                                    union all
+                                    select  a.active,a.flag,a.lnc_code,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                                    a.reg_date,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
+                                    case b.sex
+                                    when 1 then '男'
+                                    else '女' 
+                                    end sex,
+                                    b.idcard,
+                                    b.tel,
+                                    c.comb_code,
+                                    comb_name = (select comb_name from zdZhxm where comb_code = c.comb_code),
+                                    cls_code = (select cls_code from zdzhxm where comb_code = c.comb_code),
+                                    c.doct_name,
+                                    a.f_flag as chrg_flag
+                                    from ywDjxx a 
+                                    left join ywBrxx b
+                                    on a.reg_times = b.reg_times and a.pat_code = b.pat_code
+                                    inner join ywTjbgzx c
+                                    on a.reg_no = c.reg_no 
+                                    where a.reg_date between ? and ? and a.flag <> 'Z' 
+                                    union all
+                                    select  a.active,a.flag,a.lnc_code,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                                    a.reg_date,
+                                    a.reg_no,b.pat_name,
+                                    a.his_patid as pat_code,
+                                    case b.sex
+                                    when 1 then '男'
+                                    else '女' 
+                                    end sex,
+                                    b.idcard,
+                                    b.tel,
+                                    '' as comb_code,
+                                    '' as comb_name ,
+                                    '' as cls_code ,
+                                    '' as doct_name,
+                                    a.f_flag as chrg_flag
+                                    from ywDjxx a 
+                                    left join ywBrxx b
+                                    on a.reg_times = b.reg_times and a.pat_code = b.pat_code
+                                    where a.reg_date between ? and ? and a.active = 'F' and a.flag <> 'Z' ) 
+                                        tmp where cls_code not in ('90')  ";
                 #endregion
 
-                List<IDataParameter> lstParm = new List<IDataParameter>();
+                List <IDataParameter> lstParm = new List<IDataParameter>();
                 if (parms != null)
                 {
                     foreach (var po in parms)
@@ -636,7 +723,7 @@ namespace RptFunc.Biz
                         }
                     }
                 }
-                sql += strSub;
+                sql += strSub + "order by reg_no";
                 DataTable dt = svc.GetDataTable(sql, lstParm.ToArray());
                 int n = 0;
                 if (dt != null && dt.Rows.Count > 0)
@@ -654,13 +741,12 @@ namespace RptFunc.Biz
                         vo.reg_no = dr["reg_no"].ToString().Trim();
                         regNo = vo.reg_no;
                         vo.pat_name = dr["pat_name"].ToString().Trim();
-                        vo.pat_code = dr["pat_code"].ToString().Trim();
+                        //vo.pat_code = dr["pat_code"].ToString().Trim();
                         vo.sex = dr["sex"].ToString().Trim();
+                        vo.id_card = dr["idcard"].ToString().Trim();
+                        vo.tel = dr["tel"].ToString();
                         vo.comb_code = dr["comb_code"].ToString().Trim();
                         vo.comb_name = dr["comb_name"].ToString().Trim();
-                        vo.item_code = dr["item_code"].ToString().Trim();
-                        itemCode = vo.item_code;
-                        vo.rec_result = dr["rec_result"].ToString().Trim();
                         vo.doct_name = dr["doct_name"].ToString().Trim();
                         flag = dr["flag"].ToString();
                         chrFlag = dr["chrg_flag"].ToString().Trim();
@@ -687,12 +773,12 @@ namespace RptFunc.Biz
                                     if (string.IsNullOrEmpty(voClone.finishStr))
                                     {
                                         voClone.unCombCount = 1;
-                                        voClone.finishStr = "未完成-->" + vo.comb_name;
+                                        voClone.finishStr = "未完成-->" + vo.comb_name + "\n";
                                     }
                                     else if (!voClone.finishStr.Contains(vo.comb_name))
                                     {
                                         voClone.unCombCount += 1;
-                                        voClone.finishStr += "-->" + vo.comb_name;
+                                        voClone.finishStr += "-->" + vo.comb_name + "\n";
                                     }
                                 }
                             }
@@ -701,12 +787,12 @@ namespace RptFunc.Biz
                                 if (string.IsNullOrEmpty(voClone.finishStr))
                                 {
                                     voClone.unCombCount = 1;
-                                    voClone.finishStr = "未开始体检-->" + vo.comb_name;
+                                    voClone.finishStr = "未开始体检-->" + vo.comb_name + "\n";
                                 }
                                 else if (!voClone.finishStr.Contains(vo.comb_name))
                                 {
                                     voClone.unCombCount += 1;
-                                    voClone.finishStr += "-->" + vo.comb_name;
+                                    voClone.finishStr += "-->" + vo.comb_name + "\n";
                                 }
                             }
                         }
@@ -714,23 +800,30 @@ namespace RptFunc.Biz
                         {
                             if (string.IsNullOrEmpty(chrFlag) || chrFlag == "F")
                                 vo.chrg_flag = "未缴费";
+                            else
+                                vo.chrg_flag = "已缴费";
                             if (string.IsNullOrEmpty(active) || active == "F")
                                 vo.active = "未开始体检";
                             vo.combCount = 1;
                             if (flag == "C")
                             {
                                 vo.flg = "已核对";
-                                vo.finishStr = "已完成所有体检-->未完成总检-->未审核报告";
+                                vo.finishStr = "已完成体检-->未完成总检-->未审核报告";
                             }
                             else if (flag == "S")
                             {
                                 vo.flg = "已总检未审核";
-                                vo.finishStr = "已完成所有体检-->已完成总检-->未审核报告";
+                                vo.finishStr = "已完成体检-->已完成总检-->未审核报告";
                             }
-                            else if (flag == "R" || flag == "P")
+                            else if ( flag == "P")
+                            {
+                                vo.flg = "已打印";
+                                vo.finishStr = "已完成体检-->已完成总检-->已审核报告-->已打印";
+                            }
+                            else if(flag == "R")
                             {
                                 vo.flg = "已审核";
-                                vo.finishStr = "已完成所有体检-->已完成总检-->已审核报告";
+                                vo.finishStr = "已完成体检-->已完成总检-->已审核报告-->未打印";
                             }
                             else if (active == "T")
                             {
@@ -738,14 +831,14 @@ namespace RptFunc.Biz
                                 if (string.IsNullOrEmpty(vo.doct_name))
                                 {
                                     vo.unCombCount = 1;
-                                    vo.finishStr = "未完成-->" + vo.comb_name;
+                                    vo.finishStr = "未完成-->" + vo.comb_name + "\n";
                                 }
                             }
                             else if (string.IsNullOrEmpty(active) || active == "F")
                             {
                                 vo.flg = "未开始体检";
                                 vo.unCombCount = 1;
-                                vo.finishStr = "未开始体检-->" + vo.comb_name;
+                                vo.finishStr = "未开始体检-->" + vo.comb_name + "\n";
                             }
                             dicComb.Add(vo.reg_no, vo.comb_name);
                             data.Add(vo);
@@ -783,7 +876,7 @@ namespace RptFunc.Biz
             }
             catch (Exception ex)
             {
-                Log.Output("regNo-->" + regNo + "  itemCode-->" + itemCode);
+                Log.Output("regNo-->" + regNo );
                 ExceptionLog.OutPutException(ex);
             }
 
@@ -806,13 +899,13 @@ namespace RptFunc.Biz
             {
                 SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
                 string strSub = string.Empty;
-                string sql = @"select e.lnc_name ,
-                                   b.reg_no ,
+                string sql = @"select * from (select e.lnc_name ,b.lnc_code, reg_date,d.cls_code,
+                                   b.reg_no ,c.rec_no,
                                    a.pat_name ,
                                    case a.sex
-                                     when '1' then '男'
-                                     when '2' then '女'
-                                     else ''   end sex,
+                                   when '1' then '男'
+                                   when '2' then '女'
+                                   else ''  end sex,
                                    a.age ,
                                    a.tel ,
                                    a.idcard ,
@@ -827,7 +920,30 @@ namespace RptFunc.Biz
                                 on c.comb_code = d.comb_code
                               left join zddw e
                                 on b.lnc_code = e.lnc_code
-                             where  b.reg_date >= ? and b.reg_date <= ? ";
+                             where a.flag in ('P','R')  
+                            union all
+                            select e.lnc_name ,b.lnc_code, reg_date,d.cls_code,
+                                   b.reg_no ,c.rec_no,
+                                   a.pat_name ,
+                                   case a.sex
+                                   when '1' then '男'
+                                   when '2' then '女'
+                                   else ''   end sex,
+                                   a.age ,
+                                   a.tel ,
+                                   a.idcard ,
+                                   d.comb_name ,
+                                   c.res_tag 
+                             from ywBrxx a
+                                  join ywDjxx b
+                                  on a.pat_code = b.pat_code and a.reg_times = b.reg_times
+                                  join ywTjbgzx c
+                                  on b.reg_no = c.reg_no
+                                  left join zdZhxm d
+                                  on c.comb_code = d.comb_code
+                                  left join zddw e
+                                  on b.lnc_code = e.lnc_code
+                                  where  a.flag not in ('P','R')) tmp where reg_date between ? and ?";
 
                 List<IDataParameter> lstParm = new List<IDataParameter>();
                 if (parms != null)
@@ -844,19 +960,19 @@ namespace RptFunc.Biz
                                 lstParm.Add(parm[1]);
                                 break;
                             case "xmfl":
-                                strSub += " and (d.cls_code = '" + po.value + "')";
+                                strSub += " and (cls_code = '" + po.value + "')";
                                 if (po.value != "06")
                                     isGjz = true;
                                 break;
                             case "lncCode":
-                                strSub += " and b.lnc_code = '" + po.value + "'";
+                                strSub += " and lnc_code = '" + po.value + "'";
                                 break;
                             case "ycgjz":
-                                strSub += " and (c.res_tag like '%" + po.value + "%')";
+                                strSub += " and (res_tag like '%" + po.value + "%')";
                                 isGjz = true;
                                 break;
                             case "ycgjzF":
-                                strSub += " and (c.res_tag not like '%" + po.value + "%')";
+                                strSub += " and (res_tag not like '%" + po.value + "%')";
                                 isGjz = true;
                                 break;
                             default:
@@ -868,7 +984,7 @@ namespace RptFunc.Biz
 
                 if (!isGjz)
                 {
-                    sql += @" and c.rec_no in (select rec_no
+                    sql += @" and rec_no in (select rec_no
                                                       from ywTjbgjgmx d
                                                  where ab_flag = 'T'
                                                     or isnull(hint, '') <> '')";
@@ -898,7 +1014,6 @@ namespace RptFunc.Biz
             {
                 ExceptionLog.OutPutException(ex);
             }
-
 
             return data;
         }
@@ -1758,6 +1873,8 @@ namespace RptFunc.Biz
             return data;
         }
         #endregion
+
+        #region 工作量
         /// <summary>
         /// 
         /// </summary>
@@ -1934,7 +2051,270 @@ namespace RptFunc.Biz
 
             return data;
         }
-        #region
+        #endregion
+
+        #region 佛山五院
+
+        #region 项目进度
+        public List<EntityTjjdb> GetTjjdb2(List<EntityParm> parms)
+        {
+            List<EntityTjjdb> data = new List<EntityTjjdb>();
+            List<EntityTjjdb> tmp = new List<EntityTjjdb>();
+            string lncCode = string.Empty;
+            string lncName = string.Empty;
+            string strSub = string.Empty;
+            string regNo = string.Empty;
+            string itemCode = string.Empty;
+            Dictionary<string, string> dicComb = new Dictionary<string, string>();
+            try
+            {
+                SqlHelper svc = new SqlHelper(EnumBiz.onlineDB);
+                #region sql
+                string sql = @"select * from( select  a.active,a.flag,a.lnc_code,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                                    a.reg_date,
+                                    a.reg_no,b.pat_name,
+                                    case b.sex
+                                    when 1 then '男'
+                                    else '女' 
+                                    end sex,
+                                    c.comb_code,
+                                    comb_name = (select comb_name from zdZhxm where comb_code = c.comb_code),
+                                    cls_code = (select cls_code from zdzhxm where comb_code = c.comb_code),
+                                    c.doct_name,
+                                    g.save_doct,
+                                    e.chrg_flag
+                                    from ywDjxx a 
+                                    left join ywBrxx b
+                                    on a.reg_times = b.reg_times and a.pat_code = b.pat_code
+                                    inner join ywTjbg c
+                                    on a.reg_no = c.reg_no
+                                    left join ywCf e
+                                    on a.reg_no  = e.reg_no
+                                     left join ywTjbgjljy g
+                                    on a.reg_no = g.reg_no
+                                    where a.reg_date between  ? and ? and a.flag in ('P','R')
+                                    union all
+                                    select  a.active,a.flag,a.lnc_code,
+                                    lnc_name = (select lnc_name from zddw where lnc_code = a.lnc_code),
+                                    a.reg_date,
+                                    a.reg_no,b.pat_name,
+                                    case b.sex
+                                    when 1 then '男'
+                                    else '女' 
+                                    end sex,
+                                    f.comb_code,
+                                    comb_name = (select comb_name from zdZhxm where comb_code = f.comb_code),
+                                    cls_code = (select cls_code from zdzhxm where comb_code = f.comb_code),
+                                    c.doct_name,
+                                    g.save_doct,
+                                    e.chrg_flag
+                                    from ywDjxx a 
+                                    left join ywBrxx b
+                                    on a.reg_times = b.reg_times and a.pat_code = b.pat_code
+                                    left join ywTjxmzx f
+                                    on a.reg_no = f.reg_no
+                                    left join ywTjbgzx c
+                                    on a.reg_no = c.reg_no and f.comb_code = c.comb_code
+                                    left join ywCf e
+                                    on a.reg_no  = e.reg_no
+                                     left join ywTjbgjljy g
+                                    on a.reg_no = g.reg_no
+                                    where a.reg_date between ? and ?
+                                          and (a.active <> 'F' and a.active is not null)) tmp 
+                                    where cls_code not in ('90') ";
+                #endregion
+
+                List<IDataParameter> lstParm = new List<IDataParameter>();
+                if (parms != null)
+                {
+                    foreach (var po in parms)
+                    {
+                        switch (po.key)
+                        {
+                            case "regDate":
+                                IDataParameter[] parm = svc.CreateParm(6);
+                                parm[0].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[0]);
+                                parm[1].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[1]);
+                                parm[2].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[2]);
+                                parm[3].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[3]);
+                                parm[4].Value = po.value.Split('|')[0];
+                                lstParm.Add(parm[4]);
+                                parm[5].Value = po.value.Split('|')[1];
+                                lstParm.Add(parm[5]);
+                                break;
+                            case "lncCode":
+                                strSub += " and lnc_code = '" + po.value + "'";
+                                break;
+                            case "patName":
+                                strSub += " and pat_name like '%" + po.value + "%'";
+                                break;
+                            case "regNo":
+                                strSub += " and reg_no = '" + po.value + "'";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                sql += strSub + " order by reg_date";
+                DataTable dt = svc.GetDataTable(sql, lstParm.ToArray());
+                int n = 0;
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    string chrFlag = string.Empty;
+                    string active = string.Empty;
+                    string flag = string.Empty;
+                    string saveDoc = string.Empty;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //C 已核对 S已总检 R 已审核 P已打印
+                        EntityTjjdb vo = new EntityTjjdb();
+                        active = dr["active"].ToString().Trim();
+                        vo.lnc_name = dr["lnc_name"].ToString();
+                        vo.reg_date = dr["reg_date"].ToString().Trim();
+                        vo.reg_no = dr["reg_no"].ToString().Trim();
+                        regNo = vo.reg_no;
+                        vo.pat_name = dr["pat_name"].ToString().Trim();
+                        vo.sex = dr["sex"].ToString().Trim();
+                        vo.comb_code = dr["comb_code"].ToString().Trim();
+                        vo.comb_name = dr["comb_name"].ToString().Trim();
+                        vo.doct_name = dr["doct_name"].ToString().Trim();
+                        flag = dr["flag"].ToString();
+                        saveDoc = dr["save_doct"].ToString();
+                        chrFlag = dr["chrg_flag"].ToString().Trim();
+
+                        if (data.Any(r => r.reg_no == vo.reg_no))
+                        {
+                            EntityTjjdb voClone = data.Find(r => r.reg_no == vo.reg_no);
+
+                            if (dicComb.ContainsKey(vo.reg_no))
+                            {
+                                string comb = dicComb[voClone.reg_no];
+                                if (!comb.Contains(vo.comb_name))
+                                {
+                                    voClone.combCount++;
+                                    dicComb[voClone.reg_no] += "、" + vo.comb_name;
+                                }
+                            }
+                            if (flag == "C" || flag == "S" || flag == "R" || flag == "P")
+                                continue;
+                            else if (voClone.flg == "未完成")
+                            {
+                                if (string.IsNullOrEmpty(vo.doct_name))
+                                {
+                                    if (string.IsNullOrEmpty(voClone.finishStr))
+                                    {
+                                        voClone.unCombCount = 1;
+                                        voClone.finishStr = "未完成-->" + vo.comb_name + "\n";
+                                    }
+                                    else if (!voClone.finishStr.Contains(vo.comb_name))
+                                    {
+                                        voClone.unCombCount += 1;
+                                        voClone.finishStr += "-->" + vo.comb_name + "\n";
+                                    }
+                                }
+                            }
+                            else if (voClone.flg == "未开始体检")
+                            {
+                                if (string.IsNullOrEmpty(voClone.finishStr))
+                                {
+                                    voClone.unCombCount = 1;
+                                    voClone.finishStr = "未开始体检-->" + vo.comb_name + "\n";
+                                }
+                                else if (!voClone.finishStr.Contains(vo.comb_name))
+                                {
+                                    voClone.unCombCount += 1;
+                                    voClone.finishStr += "-->" + vo.comb_name + "\n";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(chrFlag) || chrFlag == "F")
+                                vo.chrg_flag = "未缴费";
+                            if (string.IsNullOrEmpty(active) || active == "F")
+                                vo.active = "未开始体检";
+                            vo.combCount = 1;
+                            if (flag == "C")
+                            {
+                                vo.flg = "已核对";
+                                vo.finishStr = "已完成所有体检-->未完成总检-->未审核报告";
+                            }
+                            else if (!string.IsNullOrEmpty(saveDoc) && flag == "C")
+                            {
+                                vo.flg = "已总检未审核";
+                                vo.finishStr = "已完成所有体检-->已完成总检-->未审核报告";
+                            }
+                            else if (flag == "P" || flag == "R")
+                            {
+                                vo.flg = "已审核";
+                                if (flag == "P")
+                                    vo.finishStr = "已完成所有体检-->已完成总检-->已审核报告-->已打印";
+                                else
+                                    vo.finishStr = "已完成所有体检-->已完成总检-->已审核报告-->未打印";
+                            }
+                            else if (active == "T")
+                            {
+                                vo.flg = "未完成";
+                                if (string.IsNullOrEmpty(vo.doct_name))
+                                {
+                                    vo.unCombCount = 1;
+                                    vo.finishStr = "未完成-->" + vo.comb_name + "\n";
+                                }
+                            }
+                            else if (string.IsNullOrEmpty(active) || active == "F")
+                            {
+                                vo.flg = "未开始体检";
+                                vo.unCombCount = 1;
+                                vo.finishStr = "未开始体检-->" + vo.comb_name + "\n";
+                            }
+                            dicComb.Add(vo.reg_no, vo.comb_name);
+                            data.Add(vo);
+                        }
+                    }
+
+                    tmp = data.OrderBy(t => t.flg).ToList();
+
+                    string lastFlg = string.Empty;
+                    string flg = string.Empty;
+                    int index = 0;
+                    for (int i = 0; i < tmp.Count; i++)
+                    {
+                        flg = tmp[i].flg;
+                        if (flg != lastFlg)
+                        {
+                            EntityTjjdb cloneVo = tmp.Find(r => r.reg_no == tmp[i].reg_no);
+                            index = tmp.FindIndex(r => r.reg_no == tmp[i].reg_no);
+
+                            EntityTjjdb voInsert = new EntityTjjdb();
+                            voInsert.flg = flg;
+                            voInsert.lnc_name = tmp.Count(r => r.flg == flg).ToString();
+                            tmp.Insert(index, voInsert);
+                            lastFlg = flg;
+                        }
+                    }
+                    if (tmp.Count > 0)
+                    {
+                        EntityTjjdb voInsert = new EntityTjjdb();
+                        voInsert.flg = "合计";
+                        voInsert.lnc_name = tmp.FindAll(r => !string.IsNullOrEmpty(r.reg_no)).Count.ToString();
+                        tmp.Insert(tmp.Count, voInsert);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLog.OutPutException(ex);
+            }
+
+            return tmp;
+        }
+        #endregion
 
         #endregion
 

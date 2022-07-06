@@ -12,6 +12,7 @@ namespace RtpFunc.Itf
     [ServiceContract]
     public interface ItfRptFunc : IWcf, IDisposable
     {
+        #region 杏坛医院
         /// <summary>
         /// 客户列表
         /// </summary>
@@ -66,6 +67,17 @@ namespace RtpFunc.Itf
 
         [OperationContract(Name = "GetGzlRpts")]
         List<EntityGzlRpt> GetGzlRpts(List<EntityParm> parms);
+        #endregion
+
+        #region 佛山五院
+        /// <summary>
+        /// 人员进度表
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        [OperationContract(Name = "GetTjjdb2")]
+        List<EntityTjjdb> GetTjjdb2(List<EntityParm> parms);
+        #endregion
 
         [OperationContract(Name = "GetZdZy")]
         List<EntityZdzy> GetZdZy();

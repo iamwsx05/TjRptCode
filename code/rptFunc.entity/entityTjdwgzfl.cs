@@ -34,5 +34,7 @@ namespace RptFunc.Entity
         public string lnc_code { get; set; }
         [DataMember]
         public string reg_no { get; set; }
+        [DataMember]
+        public string fyfl { get; set; }
     }
 }

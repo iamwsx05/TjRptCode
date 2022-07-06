@@ -49,6 +49,7 @@ namespace weCare
                 {
                     // 运行模式
                     int intRunningMode = Tool.Int(Tool.ReadLocalSettingValue("Main|runningMode", "value"));
+                    int intHospital = Tool.Int(Tool.ReadLocalSettingValue("Main|hospital", "value"));
                     // 注册皮肤,用于某些DEV控件在表单书写时的视觉样式
                     DevExpress.UserSkins.BonusSkins.Register();
                     DevExpress.Skins.SkinManager.EnableFormSkins();
@@ -56,7 +57,10 @@ namespace weCare
                     fileDll = Application.StartupPath + "\\rptFunc.dll";
 
                     objAsm = Assembly.LoadFrom(fileDll);
-                    objType = objAsm.GetType("rtpFunc.frmMain");
+                    if (intHospital == 1)
+                        objType = objAsm.GetType("rtpFunc.frmMain");
+                    else if (intHospital == 3)
+                        objType = objAsm.GetType("rtpFunc.frmFswyMain");
                     objFrm = objType.InvokeMember(null, System.Reflection.BindingFlags.DeclaredOnly | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.CreateInstance, null, null, null);
                     Form frm = objFrm as Form;
                     ((Form)frm).Tag = (intRunningMode < 2 ? 2 : intRunningMode);
@@ -64,7 +68,10 @@ namespace weCare
                     {
                         // 1 资料登记; 2 护士站; 3 医生站; 4 费用结算; 5 药房药库; 6 数据中心; 8 客服随访(院后随访); 9 健康管理; 12 病理; 15 健康管理;
                         string strSysModule = frm.Tag.ToString();
-                        objType = objAsm.GetType("rtpFunc.frmMain");
+                        if(intHospital == 1)
+                            objType = objAsm.GetType("rtpFunc.frmMain");
+                        else if(intHospital == 3)
+                            objType = objAsm.GetType("rtpFunc.frmFswyMain");
                         objFrm = objType.InvokeMember(null, System.Reflection.BindingFlags.DeclaredOnly | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.CreateInstance, null, null, null);
                         (objFrm as Form).Tag = strSysModule;
                         Application.Run(objFrm as Form);

@@ -11,7 +11,7 @@ namespace RtpFunc.Svc
 {
     public class SvcRptFunc : RtpFunc.Itf.ItfRptFunc
     {
-
+        #region 杏坛医院
         #region GetItemRpt
         /// <summary>
         /// GetItemRpt
@@ -53,6 +53,7 @@ namespace RtpFunc.Svc
             using (BizRptFunc biz = new BizRptFunc())
             {
                 return biz.GetTjjdb(parms);
+                //return biz.GetTjjdb2(parms);
             }
         }
         #endregion
@@ -82,7 +83,7 @@ namespace RtpFunc.Svc
         }
         #endregion
 
-        #region
+        #region 职业健康检查人员名单及检查结果
         /// <summary>
         /// 职业健康检查人员名单及检查结果
         /// </summary>
@@ -97,7 +98,7 @@ namespace RtpFunc.Svc
         }
         #endregion
 
-        #region
+        #region 肺活量记录表
         /// <summary>
         /// 肺活量记录表
         /// </summary>
@@ -155,6 +156,26 @@ namespace RtpFunc.Svc
                 return biz.GetGzlRpts(parms);
             }
         }
+        #endregion
+        #endregion
+
+        #region 佛山五院
+
+        #region 人员进度表
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns></returns>
+        public List<EntityTjjdb> GetTjjdb2(List<EntityParm> parms)
+        {
+            using (BizRptFunc biz = new BizRptFunc())
+            {
+                return biz.GetTjjdb2(parms);
+            }
+        }
+        #endregion
+
         #endregion
 
         #region GetYwdjxx
